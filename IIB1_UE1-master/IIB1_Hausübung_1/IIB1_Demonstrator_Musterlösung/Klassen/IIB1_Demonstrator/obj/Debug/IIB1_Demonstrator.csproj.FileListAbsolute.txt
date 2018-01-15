@@ -1,0 +1,34 @@
+C:\Users\juanj\source\repos\IIB1_Demonstrator\IIB1_Demonstrator\bin\Debug\IIB1_Demonstrator.exe.config
+C:\Users\juanj\source\repos\IIB1_Demonstrator\IIB1_Demonstrator\bin\Debug\IIB1_Demonstrator.exe
+C:\Users\juanj\source\repos\IIB1_Demonstrator\IIB1_Demonstrator\bin\Debug\IIB1_Demonstrator.pdb
+C:\Users\juanj\source\repos\IIB1_Demonstrator\IIB1_Demonstrator\obj\Debug\IIB1_Demonstrator.csprojResolveAssemblyReference.cache
+C:\Users\juanj\source\repos\IIB1_Demonstrator\IIB1_Demonstrator\obj\Debug\IIB1_Demonstrator.Properties.Resources.resources
+C:\Users\juanj\source\repos\IIB1_Demonstrator\IIB1_Demonstrator\obj\Debug\IIB1_Demonstrator.csproj.GenerateResource.Cache
+C:\Users\juanj\source\repos\IIB1_Demonstrator\IIB1_Demonstrator\obj\Debug\IIB1_Demonstrator.csproj.CoreCompileInputs.cache
+C:\Users\juanj\source\repos\IIB1_Demonstrator\IIB1_Demonstrator\obj\Debug\IIB1_Demonstrator.exe
+C:\Users\juanj\source\repos\IIB1_Demonstrator\IIB1_Demonstrator\obj\Debug\IIB1_Demonstrator.pdb
+\\172.20.0.100\Lehre\IIB\IIB 1\_WS1718_anna\Hausübungen\Uebung1\Demo\IIB1_Demonstrator\IIB1_Demonstrator\IIB1_Demonstrator\bin\Debug\IIB1_Demonstrator.dll.config
+\\172.20.0.100\Lehre\IIB\IIB 1\_WS1718_anna\Hausübungen\Uebung1\Demo\IIB1_Demonstrator\IIB1_Demonstrator\IIB1_Demonstrator\bin\Debug\IIB1_Demonstrator.dll
+\\172.20.0.100\Lehre\IIB\IIB 1\_WS1718_anna\Hausübungen\Uebung1\Demo\IIB1_Demonstrator\IIB1_Demonstrator\IIB1_Demonstrator\bin\Debug\IIB1_Demonstrator.pdb
+\\172.20.0.100\Lehre\IIB\IIB 1\_WS1718_anna\Hausübungen\Uebung1\Demo\IIB1_Demonstrator\IIB1_Demonstrator\IIB1_Demonstrator\obj\Debug\IIB1_Demonstrator.csprojResolveAssemblyReference.cache
+\\172.20.0.100\Lehre\IIB\IIB 1\_WS1718_anna\Hausübungen\Uebung1\Demo\IIB1_Demonstrator\IIB1_Demonstrator\IIB1_Demonstrator\obj\Debug\IIB1_Demonstrator.Properties.Resources.resources
+\\172.20.0.100\Lehre\IIB\IIB 1\_WS1718_anna\Hausübungen\Uebung1\Demo\IIB1_Demonstrator\IIB1_Demonstrator\IIB1_Demonstrator\obj\Debug\IIB1_Demonstrator.csproj.GenerateResource.Cache
+\\172.20.0.100\Lehre\IIB\IIB 1\_WS1718_anna\Hausübungen\Uebung1\Demo\IIB1_Demonstrator\IIB1_Demonstrator\IIB1_Demonstrator\obj\Debug\IIB1_Demonstrator.dll
+\\172.20.0.100\Lehre\IIB\IIB 1\_WS1718_anna\Hausübungen\Uebung1\Demo\IIB1_Demonstrator\IIB1_Demonstrator\IIB1_Demonstrator\obj\Debug\IIB1_Demonstrator.pdb
+C:\Users\Anna Wagner\Documents\IIB\WiSe17-18\Klassen\IIB1_Demonstrator\bin\Debug\IIB1_Demonstrator.dll.config
+C:\Users\Anna Wagner\Documents\IIB\WiSe17-18\Klassen\IIB1_Demonstrator\bin\Debug\IIB1_Demonstrator.dll
+C:\Users\Anna Wagner\Documents\IIB\WiSe17-18\Klassen\IIB1_Demonstrator\bin\Debug\IIB1_Demonstrator.pdb
+C:\Users\Anna Wagner\Documents\IIB\WiSe17-18\Klassen\IIB1_Demonstrator\obj\Debug\IIB1_Demonstrator.Properties.Resources.resources
+C:\Users\Anna Wagner\Documents\IIB\WiSe17-18\Klassen\IIB1_Demonstrator\obj\Debug\IIB1_Demonstrator.csproj.GenerateResource.Cache
+C:\Users\Anna Wagner\Documents\IIB\WiSe17-18\Klassen\IIB1_Demonstrator\obj\Debug\IIB1_Demonstrator.dll
+C:\Users\Anna Wagner\Documents\IIB\WiSe17-18\Klassen\IIB1_Demonstrator\obj\Debug\IIB1_Demonstrator.pdb
+C:\Users\Anna Wagner\Documents\IIB\WiSe17-18\Klassen\IIB1_Demonstrator\obj\Debug\IIB1_Demonstrator.csprojResolveAssemblyReference.cache
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\Projekt\IIB1_Demonstrator_Musterlösung\Klassen\IIB1_Demonstrator\bin\Debug\IIB1_Demonstrator.dll.config
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\Projekt\IIB1_Demonstrator_Musterlösung\Klassen\IIB1_Demonstrator\bin\Debug\IIB1_Demonstrator.dll
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\Projekt\IIB1_Demonstrator_Musterlösung\Klassen\IIB1_Demonstrator\bin\Debug\IIB1_Demonstrator.pdb
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\Projekt\IIB1_Demonstrator_Musterlösung\Klassen\IIB1_Demonstrator\obj\Debug\IIB1_Demonstrator.csprojResolveAssemblyReference.cache
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\Projekt\IIB1_Demonstrator_Musterlösung\Klassen\IIB1_Demonstrator\obj\Debug\IIB1_Demonstrator.Properties.Resources.resources
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\Projekt\IIB1_Demonstrator_Musterlösung\Klassen\IIB1_Demonstrator\obj\Debug\IIB1_Demonstrator.csproj.GenerateResource.Cache
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\Projekt\IIB1_Demonstrator_Musterlösung\Klassen\IIB1_Demonstrator\obj\Debug\IIB1_Demonstrator.csproj.CoreCompileInputs.cache
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\Projekt\IIB1_Demonstrator_Musterlösung\Klassen\IIB1_Demonstrator\obj\Debug\IIB1_Demonstrator.dll
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\Projekt\IIB1_Demonstrator_Musterlösung\Klassen\IIB1_Demonstrator\obj\Debug\IIB1_Demonstrator.pdb

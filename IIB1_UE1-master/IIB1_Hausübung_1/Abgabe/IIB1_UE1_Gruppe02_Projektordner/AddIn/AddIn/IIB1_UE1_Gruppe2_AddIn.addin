@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Assembly>C:\Users\Charli\Documents\GitHub\IIB1_UE1\Projekt\AddIn\AddIn\bin\Debug\AddIn.dll</Assembly>
+    <AddInId>78250f4e-6c3f-4ae4-a134-7afd27ecf2da</AddInId>
+    <FullClassName>AddIn.App</FullClassName>
+    <Text>RevitAddIn</Text>
+	<Name>Brandschutztool</Name>
+    <VendorId>Gruppe2</VendorId>
+    <VendorDescription>Igor, Andreas und Wiebke</VendorDescription>
+  </AddIn>
+</RevitAddIns>

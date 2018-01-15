@@ -1,0 +1,11 @@
+Projekt\GUI\GUI\bin
+Projekt\GUI\GUI\obj
+Projekt\Klassen\.vs
+Projekt\GUI\.vs
+*.ide-shm
+*.ide-wal
+*.cache
+*.cache
+Projekt/AddIn/.vs/AddIn/v15/.suo
+*.csproj
+Projekt/GUI/.vs/GUI/v15/.suo

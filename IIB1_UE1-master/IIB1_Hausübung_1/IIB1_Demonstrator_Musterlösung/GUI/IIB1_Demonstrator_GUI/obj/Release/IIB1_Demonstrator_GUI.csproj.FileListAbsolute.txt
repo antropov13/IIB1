@@ -1,0 +1,15 @@
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\Projekt\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\bin\Release\IIB1_Demonstrator_GUI.exe.config
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\Projekt\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\bin\Release\IIB1_Demonstrator_GUI.exe
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\Projekt\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\bin\Release\IIB1_Demonstrator_GUI.pdb
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\Projekt\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\bin\Release\IIB1_Demonstrator.dll
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\Projekt\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\bin\Release\IIB1_Demonstrator.pdb
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\Projekt\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\bin\Release\IIB1_Demonstrator.dll.config
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\Projekt\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\bin\Release\IIB1_Demonstrator.exe.config
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\Projekt\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\obj\Release\IIB1_Demonstrator_GUI.Forms.FormFenster.resources
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\Projekt\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\obj\Release\IIB1_Demonstrator_GUI.Forms.FormRaum.resources
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\Projekt\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\obj\Release\IIB1_Demonstrator_GUI.Forms.FormMain.resources
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\Projekt\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\obj\Release\IIB1_Demonstrator_GUI.Properties.Resources.resources
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\Projekt\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\obj\Release\IIB1_Demonstrator_GUI.csproj.GenerateResource.Cache
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\Projekt\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\obj\Release\IIB1_Demonstrator_GUI.csproj.CoreCompileInputs.cache
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\Projekt\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\obj\Release\IIB1_Demonstrator_GUI.exe
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\Projekt\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\obj\Release\IIB1_Demonstrator_GUI.pdb

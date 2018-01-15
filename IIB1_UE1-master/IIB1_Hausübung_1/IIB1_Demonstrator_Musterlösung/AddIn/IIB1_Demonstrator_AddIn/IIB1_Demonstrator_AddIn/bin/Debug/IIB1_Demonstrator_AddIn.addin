@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Assembly>C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\Projekt\IIB1_Demonstrator_Musterlösung\AddIn\IIB1_Demonstrator_AddIn\IIB1_Demonstrator_AddIn\bin\Debug\IIB1_Demonstrator_AddIn.dll</Assembly>
+    <ClientId>78250f4e-6c3f-4ae4-a134-7afd27ecf2da</ClientId>
+    <FullClassName>IIB1_Demonstrator_AddIn.RevitAddIn</FullClassName>
+    <Text>RevitAddIn</Text>
+    <Description>""</Description>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+    <VendorId>ADSK</VendorId>
+    <VendorDescription>Autodesk, www.autodesk.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>

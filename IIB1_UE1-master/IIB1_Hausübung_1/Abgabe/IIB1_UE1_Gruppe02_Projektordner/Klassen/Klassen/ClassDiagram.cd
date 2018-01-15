@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Klassen.Buero" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Buero.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Klassen.Feuerloecher" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAABA=</HashCode>
+      <FileName>Feuerloecher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Klassen.Flur" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Flur.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Klassen.Raum" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iAgAAIAAAAAAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Raum.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Klassen.Seminarraum" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Seminarraum.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

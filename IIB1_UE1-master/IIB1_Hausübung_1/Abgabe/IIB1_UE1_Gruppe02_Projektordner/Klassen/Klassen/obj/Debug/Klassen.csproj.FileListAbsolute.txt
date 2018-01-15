@@ -1,0 +1,9 @@
+C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\Klassen\Klassen\bin\Debug\Klassen.dll
+C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\Klassen\Klassen\bin\Debug\Klassen.pdb
+C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\Klassen\Klassen\obj\Debug\Klassen.csproj.CoreCompileInputs.cache
+C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\Klassen\Klassen\obj\Debug\Klassen.dll
+C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\Klassen\Klassen\obj\Debug\Klassen.pdb
+C:\Users\TEMP\Downloads\IIB1_UE1\IIB1_UE1\Projekt\Klassen\Klassen\obj\Debug\Klassen.csprojResolveAssemblyReference.cache
+C:\Users\TEMP\Downloads\IIB1_UE1\IIB1_UE1\Projekt\Klassen\Klassen\obj\Debug\Klassen.dll
+C:\Users\TEMP\Downloads\IIB1_UE1\IIB1_UE1\Projekt\Klassen\Klassen\obj\Debug\Klassen.pdb
+C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\Klassen\Klassen\obj\Debug\Klassen.csprojResolveAssemblyReference.cache

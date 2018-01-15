@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Klassen/Feuerloescher.cs">
+    <Files>
+      <File FileName="Klassen/Raum.cs" Line="13" Column="24" />
+      <File FileName="Klassen/Loeschvermoegen.cs" Line="18" Column="10" />
+      <File FileName="Klassen/Feuerloescher.cs" Line="12" Column="30" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
