@@ -40,8 +40,8 @@ namespace GUI
                     comboBoxTypRaum.Items.Add(r.TypRaume);
             }
 
-            comboBoxTypRaum.SelectedIndex = 0;
-
+            comboBoxTypRaum.SelectedIndex = 0;    
+            
         }
 
         public void raumErstellen(Raum raum)
@@ -99,7 +99,7 @@ namespace GUI
             listBoxRaum.DrawMode = DrawMode.OwnerDrawFixed;
             listBoxRaum.DrawItem += listBoxRaum_DrawItem;
 
-
+            
             String typ = (String)comboBoxTypRaum.SelectedItem;
             double gesamptpreis = 0;
             if (typ.Equals("Alle"))
@@ -107,12 +107,12 @@ namespace GUI
                 foreach (Raum r in raeume)
                 {
                     int LEFeurloescher = 0;
-                    foreach (Feuerloescher f in r.FeuerloescherList)
+                    foreach(Feuerloescher f in r.FeuerloescherList)
                     {
                         LEFeurloescher += f.Anzahl * f.Loescheinheit;
                         gesamptpreis += f.Anzahl * f.Preis; //Gesamptpreis Brandschutzplanung für alle Räume
                     }
-                    if (LEFeurloescher >= r.Loeschmitteleinheiten) //Die Farbe für Raum abhängig von Branschutzplanung (Grün oder Red)
+                    if (LEFeurloescher>=r.Loeschmitteleinheiten) //Die Farbe für Raum abhängig von Branschutzplanung (Grün oder Red)
                         listBoxRaum.Items.Add(new listBoxRaumItems(Color.Green, r));
                     else listBoxRaum.Items.Add(new listBoxRaumItems(Color.Red, r));
                 }
@@ -128,15 +128,15 @@ namespace GUI
 
                     if (r.TypRaume.Equals(typ))
                     {
-                        int LEFeurloescher = 0;
-                        foreach (Feuerloescher f in r.FeuerloescherList)
-                        {
-                            LEFeurloescher += f.Anzahl * f.Loescheinheit;
-                            gesamptpreis += f.Anzahl * f.Preis; //Gesamptpreis Brandschutzplanung abhängig von Nutzungsart
-                        }
-                        if (LEFeurloescher >= r.Loeschmitteleinheiten) //Die Farbe für Raum abhängig von Branschutzplanung (Grün oder Red)
-                            listBoxRaum.Items.Add(new listBoxRaumItems(Color.Green, r));
-                        else listBoxRaum.Items.Add(new listBoxRaumItems(Color.Red, r));
+                    int LEFeurloescher = 0;
+                    foreach(Feuerloescher f in r.FeuerloescherList)
+                    {
+                        LEFeurloescher += f.Anzahl * f.Loescheinheit;
+                        gesamptpreis += f.Anzahl * f.Preis; //Gesamptpreis Brandschutzplanung abhängig von Nutzungsart
+                    }
+                    if (LEFeurloescher>=r.Loeschmitteleinheiten) //Die Farbe für Raum abhängig von Branschutzplanung (Grün oder Red)
+                        listBoxRaum.Items.Add(new listBoxRaumItems(Color.Green, r));
+                    else listBoxRaum.Items.Add(new listBoxRaumItems(Color.Red, r));
                     }
                 }
 
@@ -145,7 +145,7 @@ namespace GUI
             }
 
             if (listBoxRaum.Items.Count > 0)
-            {
+            { 
                 listBoxRaum.SelectedIndex = 0;
                 buttonRaumDetail.Enabled = true;
                 buttonLoeschenRaum.Enabled = true;
@@ -155,7 +155,7 @@ namespace GUI
                 buttonRaumDetail.Enabled = false;
                 buttonLoeschenRaum.Enabled = false;
             }
-
+            
         }
         private void comboBoxTypRaum_SelectedIndexChanged(object sender, EventArgs e)
         {
