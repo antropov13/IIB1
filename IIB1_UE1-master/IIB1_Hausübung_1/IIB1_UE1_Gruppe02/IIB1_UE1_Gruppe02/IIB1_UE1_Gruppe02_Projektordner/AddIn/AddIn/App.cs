@@ -47,7 +47,7 @@ namespace AddIn
                 // eigenes Ribbon Item erstellen
                 CreateRibbonSamplePanel(application);
                 revitAppForm = null;
-                thisApp = this; 
+                thisApp = this;
 
 
                 return Autodesk.Revit.UI.Result.Succeeded;

@@ -16,6 +16,7 @@ namespace AddIn
     {
         #region Attribute
         private static Document doc = null;
+        private static IList<Element> alleFenster = new List<Element>();
         private static IList<Element> alleBoeden = new List<Element>();
 
         public static Document Doc
@@ -66,6 +67,19 @@ namespace AddIn
                 return flur;
             }
             return null;
+        }
+
+        public static void holeAlleFenster()
+        {
+            ElementCategoryFilter filter = new ElementCategoryFilter(BuiltInCategory.OST_Windows);
+            FilteredElementCollector collector = new FilteredElementCollector(doc);
+            alleFenster = collector.WherePasses(filter).WhereElementIsNotElementType().ToElements();
+        }
+
+        public static void updateRaumDaten(BindingList<Raum> raeume)
+        {
+            //aendereBekannteProperties(raeume);
+            //aendereNeueProperties(raeume);
         }
 
         public static double squarefeetToQuadratmeter(double squarefeet)
