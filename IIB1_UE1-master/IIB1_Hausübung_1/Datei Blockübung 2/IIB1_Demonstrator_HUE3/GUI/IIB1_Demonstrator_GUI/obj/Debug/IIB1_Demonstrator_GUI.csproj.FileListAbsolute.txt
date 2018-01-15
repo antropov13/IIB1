@@ -1,0 +1,80 @@
+C:\Users\juanj\source\repos\IIB1_Demonstrator\IIB1_Demonstrator_GUI\bin\Debug\IIB1_Demonstrator_GUI.exe.config
+C:\Users\juanj\source\repos\IIB1_Demonstrator\IIB1_Demonstrator_GUI\bin\Debug\IIB1_Demonstrator_GUI.exe
+C:\Users\juanj\source\repos\IIB1_Demonstrator\IIB1_Demonstrator_GUI\bin\Debug\IIB1_Demonstrator_GUI.pdb
+C:\Users\juanj\source\repos\IIB1_Demonstrator\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.csprojResolveAssemblyReference.cache
+C:\Users\juanj\source\repos\IIB1_Demonstrator\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.Forms.Hauptfenster.resources
+C:\Users\juanj\source\repos\IIB1_Demonstrator\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.Properties.Resources.resources
+C:\Users\juanj\source\repos\IIB1_Demonstrator\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.csproj.GenerateResource.Cache
+C:\Users\juanj\source\repos\IIB1_Demonstrator\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.csproj.CoreCompileInputs.cache
+C:\Users\juanj\source\repos\IIB1_Demonstrator\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.exe
+C:\Users\juanj\source\repos\IIB1_Demonstrator\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.pdb
+C:\Users\juanj\source\repos\IIB1_Demonstrator\IIB1_Demonstrator_GUI\bin\Debug\IIB1_Demonstrator.exe
+C:\Users\juanj\source\repos\IIB1_Demonstrator\IIB1_Demonstrator_GUI\bin\Debug\IIB1_Demonstrator.pdb
+C:\Users\juanj\source\repos\IIB1_Demonstrator\IIB1_Demonstrator_GUI\bin\Debug\IIB1_Demonstrator.exe.config
+\\172.20.0.100\Lehre\IIB\IIB 1\_WS1718_anna\Hausübungen\Uebung1\Demo\IIB1_Demonstrator\IIB1_Demonstrator\IIB1_Demonstrator_GUI\bin\Debug\IIB1_Demonstrator_GUI.exe.config
+\\172.20.0.100\Lehre\IIB\IIB 1\_WS1718_anna\Hausübungen\Uebung1\Demo\IIB1_Demonstrator\IIB1_Demonstrator\IIB1_Demonstrator_GUI\bin\Debug\IIB1_Demonstrator_GUI.exe
+\\172.20.0.100\Lehre\IIB\IIB 1\_WS1718_anna\Hausübungen\Uebung1\Demo\IIB1_Demonstrator\IIB1_Demonstrator\IIB1_Demonstrator_GUI\bin\Debug\IIB1_Demonstrator_GUI.pdb
+\\172.20.0.100\Lehre\IIB\IIB 1\_WS1718_anna\Hausübungen\Uebung1\Demo\IIB1_Demonstrator\IIB1_Demonstrator\IIB1_Demonstrator_GUI\bin\Debug\IIB1_Demonstrator.dll
+\\172.20.0.100\Lehre\IIB\IIB 1\_WS1718_anna\Hausübungen\Uebung1\Demo\IIB1_Demonstrator\IIB1_Demonstrator\IIB1_Demonstrator_GUI\bin\Debug\IIB1_Demonstrator.pdb
+\\172.20.0.100\Lehre\IIB\IIB 1\_WS1718_anna\Hausübungen\Uebung1\Demo\IIB1_Demonstrator\IIB1_Demonstrator\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.csprojResolveAssemblyReference.cache
+\\172.20.0.100\Lehre\IIB\IIB 1\_WS1718_anna\Hausübungen\Uebung1\Demo\IIB1_Demonstrator\IIB1_Demonstrator\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.Forms.FormFenster.resources
+\\172.20.0.100\Lehre\IIB\IIB 1\_WS1718_anna\Hausübungen\Uebung1\Demo\IIB1_Demonstrator\IIB1_Demonstrator\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.Forms.FormRaum.resources
+\\172.20.0.100\Lehre\IIB\IIB 1\_WS1718_anna\Hausübungen\Uebung1\Demo\IIB1_Demonstrator\IIB1_Demonstrator\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.Forms.FormMain.resources
+\\172.20.0.100\Lehre\IIB\IIB 1\_WS1718_anna\Hausübungen\Uebung1\Demo\IIB1_Demonstrator\IIB1_Demonstrator\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.Properties.Resources.resources
+\\172.20.0.100\Lehre\IIB\IIB 1\_WS1718_anna\Hausübungen\Uebung1\Demo\IIB1_Demonstrator\IIB1_Demonstrator\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.csproj.GenerateResource.Cache
+\\172.20.0.100\Lehre\IIB\IIB 1\_WS1718_anna\Hausübungen\Uebung1\Demo\IIB1_Demonstrator\IIB1_Demonstrator\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.exe
+\\172.20.0.100\Lehre\IIB\IIB 1\_WS1718_anna\Hausübungen\Uebung1\Demo\IIB1_Demonstrator\IIB1_Demonstrator\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.pdb
+C:\Users\Anna Wagner\Documents\IIB\WiSe17-18\GUI\IIB1_Demonstrator_GUI\bin\Debug\IIB1_Demonstrator_GUI.exe.config
+C:\Users\Anna Wagner\Documents\IIB\WiSe17-18\GUI\IIB1_Demonstrator_GUI\bin\Debug\IIB1_Demonstrator_GUI.exe
+C:\Users\Anna Wagner\Documents\IIB\WiSe17-18\GUI\IIB1_Demonstrator_GUI\bin\Debug\IIB1_Demonstrator_GUI.pdb
+C:\Users\Anna Wagner\Documents\IIB\WiSe17-18\GUI\IIB1_Demonstrator_GUI\bin\Debug\IIB1_Demonstrator.dll
+C:\Users\Anna Wagner\Documents\IIB\WiSe17-18\GUI\IIB1_Demonstrator_GUI\bin\Debug\IIB1_Demonstrator.pdb
+C:\Users\Anna Wagner\Documents\IIB\WiSe17-18\GUI\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.Forms.FormFenster.resources
+C:\Users\Anna Wagner\Documents\IIB\WiSe17-18\GUI\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.Forms.FormRaum.resources
+C:\Users\Anna Wagner\Documents\IIB\WiSe17-18\GUI\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.Forms.FormMain.resources
+C:\Users\Anna Wagner\Documents\IIB\WiSe17-18\GUI\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.Properties.Resources.resources
+C:\Users\Anna Wagner\Documents\IIB\WiSe17-18\GUI\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.csproj.GenerateResource.Cache
+C:\Users\Anna Wagner\Documents\IIB\WiSe17-18\GUI\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.exe
+C:\Users\Anna Wagner\Documents\IIB\WiSe17-18\GUI\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.pdb
+C:\Users\Anna Wagner\Documents\IIB\WiSe17-18\GUI\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.csprojResolveAssemblyReference.cache
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.csprojResolveAssemblyReference.cache
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.Forms.FormFenster.resources
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.Forms.FormRaum.resources
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.Forms.FormMain.resources
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.Properties.Resources.resources
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.csproj.GenerateResource.Cache
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.csproj.CoreCompileInputs.cache
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.exe
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.pdb
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\IIB1_Demonstrator_GUI.exe.config
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\IIB1_Demonstrator_GUI.exe
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\IIB1_Demonstrator_GUI.pdb
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\AdWindows.dll
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\IIB1_Demonstrator.dll
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\RevitAPI.dll
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\RevitAPIIFC.dll
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\RevitAPIMacros.dll
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\RevitAPIUIMacros.dll
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\IntfIFCAPI.dll
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\SDACommon.dll
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\RevitAPIMacrosInteropAPI.dll
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\RevitAPIMacrosInterop.dll
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\RevitAPIUIMacrosInteropAPI.dll
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\IIB1_Demonstrator.pdb
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\IIB1_Demonstrator.dll.config
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\IIB1_Demonstrator.exe.config
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\RevitAPI.xml
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\RevitAPIIFC.xml
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\cs-CZ\AdWindows.resources.dll
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\de-DE\AdWindows.resources.dll
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\en-US\AdWindows.resources.dll
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\es-ES\AdWindows.resources.dll
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\fr-FR\AdWindows.resources.dll
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\it-IT\AdWindows.resources.dll
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\ja-JP\AdWindows.resources.dll
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\ko-KR\AdWindows.resources.dll
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\pl-PL\AdWindows.resources.dll
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\pt-BR\AdWindows.resources.dll
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\ru-RU\AdWindows.resources.dll
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\zh-CN\AdWindows.resources.dll
+C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\2\IIB1_Demonstrator_HUE3\GUI\IIB1_Demonstrator_GUI\bin\Debug\zh-TW\AdWindows.resources.dll
