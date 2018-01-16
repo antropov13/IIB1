@@ -280,5 +280,10 @@ namespace GUI
             //Form schliessen
             this.Close();
         }
+
+        private void buttonUpdate_Click(object sender, EventArgs e)
+        {
+            ex_updateEvent.Raise();
+        }
     }
 }

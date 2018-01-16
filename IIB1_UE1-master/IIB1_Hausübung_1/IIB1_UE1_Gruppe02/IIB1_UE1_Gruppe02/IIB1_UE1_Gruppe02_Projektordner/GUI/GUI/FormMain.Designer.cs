@@ -44,6 +44,7 @@
             this.buttonErstellenRaum = new System.Windows.Forms.Button();
             this.labelGesamptpreis = new System.Windows.Forms.Label();
             this.textBoxGesamptpreis = new System.Windows.Forms.TextBox();
+            this.buttonUpdate = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -183,11 +184,22 @@
             this.textBoxGesamptpreis.TabIndex = 14;
             this.textBoxGesamptpreis.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.Location = new System.Drawing.Point(248, 275);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(119, 52);
+            this.buttonUpdate.TabIndex = 15;
+            this.buttonUpdate.Text = "Speichern";
+            this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(379, 383);
+            this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.textBoxGesamptpreis);
             this.Controls.Add(this.labelGesamptpreis);
             this.Controls.Add(this.buttonErstellenRaum);
@@ -225,6 +237,7 @@
         private System.Windows.Forms.Button buttonErstellenRaum;
         private System.Windows.Forms.Label labelGesamptpreis;
         private System.Windows.Forms.TextBox textBoxGesamptpreis;
+        private System.Windows.Forms.Button buttonUpdate;
     }
 }
 

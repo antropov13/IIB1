@@ -15,6 +15,6 @@ namespace Klassen
 
         public Flur() : base() { TypRaume = typRaum; Heizwert = heizwert; }
         public Flur(Raum raum) : base(raum) { TypRaume = typRaum; Heizwert = heizwert; }
-        public Flur(double flaeche, String bezeichnung, BindingList<Feuerloescher> feuerloescher, Material materialien) : base(flaeche, bezeichnung, feuerloescher, materialien) { TypRaume = typRaum; Heizwert = heizwert; }
+        public Flur(double flaeche, String bezeichnung, BindingList<Feuerloescher> feuerloescher, Material materialien, String revitID) : base(flaeche, bezeichnung, feuerloescher, materialien, revitID) { TypRaume = typRaum; Heizwert = heizwert; }
     }
 }

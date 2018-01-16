@@ -153,6 +153,7 @@ namespace GUI
         private void buttonAenderungsSpeichern_Click(object sender, EventArgs e)
         {
             //Speichern Änderung des Raum
+            
             String typ = comboBoxRaumNutzungsart.Text;
             raum.TypRaume = typ;
             switch (typ)

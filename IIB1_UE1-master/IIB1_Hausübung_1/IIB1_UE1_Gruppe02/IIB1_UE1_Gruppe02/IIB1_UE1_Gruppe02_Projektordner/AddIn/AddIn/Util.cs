@@ -47,22 +47,22 @@ namespace AddIn
             string raumtyp = room.GetParameters("Raumschlüssel")[0].AsValueString();
             if (raumtyp == "2")
             {
-                Buero buero = new Buero(flaeche, room.Number, feuerloescherListe, material);
+                Buero buero = new Buero(flaeche, room.Number, feuerloescherListe, material, room.UniqueId);
                 return buero;
             }
             else if (raumtyp == "5")
             {
-                Seminarraum seminarraum = new Seminarraum(flaeche, room.Number, feuerloescherListe, material);
+                Seminarraum seminarraum = new Seminarraum(flaeche, room.Number, feuerloescherListe, material, room.UniqueId);
                 return seminarraum;
             }
             else if (raumtyp == "7")
             {
-                Sanitaerraum sanitaerraum = new Sanitaerraum(flaeche, room.Number, feuerloescherListe, material);
+                Sanitaerraum sanitaerraum = new Sanitaerraum(flaeche, room.Number, feuerloescherListe, material, room.UniqueId);
                 return sanitaerraum;
             }
             else if (raumtyp == "9")
             {
-                Flur flur = new Flur(flaeche, room.Number, feuerloescherListe, material);
+                Flur flur = new Flur(flaeche, room.Number, feuerloescherListe, material, room.UniqueId);
                 return flur;
             }
             return null;
@@ -87,17 +87,28 @@ namespace AddIn
                 bool worked;
                 foreach (Raum r in raeume)
                 {
+                    TaskDialog.Show("1. Комната:", r.Bezeichung);
                     if (r.RevitId != null)
                     {
+                        TaskDialog.Show("2. id: ", r.RevitId);
                         Room room = (Room)doc.GetElement(r.RevitId);
                         using (Transaction trans = new Transaction(doc))
                         {
+                            TaskDialog.Show("3. Room", room.Name);
                             if (trans.Start("ChangeRoomParameters") == TransactionStatus.Started)
                             {
-                                room.Name = r.Bezeichung;
+                                TaskDialog.Show("4. Start: ", room.Number + ", " + room.Name);
+                                room.Number = r.Bezeichung;
+                                //room.GetParameters("Name").First().Set(r.Bezeichung);
+                                TaskDialog.Show("4.1. number=name: ", r.Bezeichung);
                                 if (zugehörigeNutzungsart(r) != "")
+                                {
+                                    TaskDialog.Show("5. Art", zugehörigeNutzungsart(r));
                                     worked = room.GetParameters("Raumschlüssel").First().Set(zugehörigeNutzungsart(r));
+                                }
+                                TaskDialog.Show("6. Commit: ", room.Number);
                                 trans.Commit();
+                                TaskDialog.Show("7. End ",room.Number);
                             }
                         }
                     }
@@ -105,7 +116,7 @@ namespace AddIn
             }
             catch (Exception e)
             {
-                TaskDialog.Show("", e.Message);
+                TaskDialog.Show("Fehler", e.Message);
             }
         }
 
