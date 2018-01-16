@@ -10,7 +10,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using Autodesk.Revit.UI;
+using Autodesk.Revit.UI;
 
 namespace GUI
 {
@@ -18,20 +18,21 @@ namespace GUI
     {
         private BindingList<Raum> raeume;
         public BindingList<Feuerloescher> feuerloescherList;
-        //private ExternalEvent ex_updateEvent;
-        //private ExternalEvent ex_lampenEvent;
+        private ExternalEvent ex_updateEvent;
+        private ExternalEvent ex_lampenEvent;
         private listBoxRaumItems item;
 
         public BindingList<Raum> Raeume { get { return raeume; } }
 
-       /* public FormMain(ExternalEvent update, BindingList<Feuerloescher> _feuerloescherList, BindingList<Raum> _raeume)
+       public FormMain(ExternalEvent update, BindingList<Feuerloescher> _feuerloescherList, BindingList<Raum> _raeume)
         {
             this.ex_updateEvent = update;
             //this.ex_lampenEvent = lampen;
             InitializeComponent();
             this.raeume = _raeume;
+            this.feuerloescherList = _feuerloescherList;
             fuelleListe();
-        }*/
+        }
 
         public FormMain(BindingList<Raum> _raeume, BindingList<Feuerloescher> _feuerloescherList)
         {

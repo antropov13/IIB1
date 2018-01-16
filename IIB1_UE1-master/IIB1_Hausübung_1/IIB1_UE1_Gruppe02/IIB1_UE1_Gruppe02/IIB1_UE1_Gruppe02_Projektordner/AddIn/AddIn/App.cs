@@ -117,8 +117,7 @@ namespace AddIn
                 ExternalEvent updateEvent = ExternalEvent.Create(updateHandler);
 
 
-                //revitAppForm = new FormMain(updateEvent, feuerlocherList ,revitRaeume);
-                revitAppForm = new FormMain(revitRaeume, feuerlocherList);
+                revitAppForm = new FormMain(updateEvent, feuerlocherList ,revitRaeume);
                 revitAppForm.Show();
             }
         }
