@@ -16,6 +16,7 @@ namespace AddIn
     {
         #region Attribute
         private static Document doc = null;
+        public static readonly string nutzungsart = "Nutzungsgruppe DIN 277-2";
         private static IList<Element> alleBoeden = new List<Element>();
 
         public static Document Doc
@@ -44,23 +45,24 @@ namespace AddIn
             BindingList<Feuerloescher> feuerloescherListe = new BindingList<Feuerloescher>();
             Klassen.Material material = new Klassen.Material();
             double flaeche = squarefeetToQuadratmeter(room.Area);
-            string raumtyp = room.GetParameters("Raumschlüssel")[0].AsValueString();
-            if (raumtyp == "2")
+            //string raumtyp = room.GetParameters("Raumschlüssel")[0].AsValueString();
+            string raumtyp = room.GetParameters(nutzungsart)[0].AsString();
+            if (raumtyp == "2-Büroarbeit")
             {
                 Buero buero = new Buero(flaeche, room.Number, feuerloescherListe, material, room.UniqueId);
                 return buero;
             }
-            else if (raumtyp == "5")
+            else if (raumtyp == "3-Produktion/Hand-Maschinenarbeit/Experimente")
             {
                 Seminarraum seminarraum = new Seminarraum(flaeche, room.Number, feuerloescherListe, material, room.UniqueId);
                 return seminarraum;
             }
-            else if (raumtyp == "7")
+            else if (raumtyp == "7-Sonstige Nutzflächen")
             {
                 Sanitaerraum sanitaerraum = new Sanitaerraum(flaeche, room.Number, feuerloescherListe, material, room.UniqueId);
                 return sanitaerraum;
             }
-            else if (raumtyp == "9")
+            else if (raumtyp == "1-Wohnen und Aufenthalt")
             {
                 Flur flur = new Flur(flaeche, room.Number, feuerloescherListe, material, room.UniqueId);
                 return flur;
@@ -87,28 +89,17 @@ namespace AddIn
                 bool worked;
                 foreach (Raum r in raeume)
                 {
-                    TaskDialog.Show("1. Комната:", r.Bezeichung);
                     if (r.RevitId != null)
                     {
-                        TaskDialog.Show("2. id: ", r.RevitId);
                         Room room = (Room)doc.GetElement(r.RevitId);
                         using (Transaction trans = new Transaction(doc))
                         {
-                            TaskDialog.Show("3. Room", room.Name);
                             if (trans.Start("ChangeRoomParameters") == TransactionStatus.Started)
                             {
-                                TaskDialog.Show("4. Start: ", room.Number + ", " + room.Name);
                                 room.Number = r.Bezeichung;
-                                //room.GetParameters("Name").First().Set(r.Bezeichung);
-                                TaskDialog.Show("4.1. number=name: ", r.Bezeichung);
                                 if (zugehörigeNutzungsart(r) != "")
-                                {
-                                    TaskDialog.Show("5. Art", zugehörigeNutzungsart(r));
-                                    worked = room.GetParameters("Raumschlüssel").First().Set(zugehörigeNutzungsart(r));
-                                }
-                                TaskDialog.Show("6. Commit: ", room.Number);
+                                    worked = room.GetParameters(nutzungsart).First().Set(zugehörigeNutzungsart(r));
                                 trans.Commit();
-                                TaskDialog.Show("7. End ",room.Number);
                             }
                         }
                     }
@@ -122,32 +113,17 @@ namespace AddIn
 
         private static string zugehörigeNutzungsart(Raum r)
         {
-            //string raumtyp = room.GetParameters("Raumschlüssel")[0].AsValueString();
 
             if (r is Buero)
-            {
-                //Buero buero = new Buero(flaeche, room.Number, feuerloescherListe, material);
-                return "2";
-            }
-            else if (r is Seminarraum)
-            {
-                //Seminarraum seminarraum = new Seminarraum(flaeche, room.Number, feuerloescherListe, material);
-                return "5";
-            }
-            else if (r is Sanitaerraum)
-            {
-                //Sanitaerraum sanitaerraum = new Sanitaerraum(flaeche, room.Number, feuerloescherListe, material);
-                return "7";
-            }
-            else if (r is Flur)
-            {
-                //Flur flur = new Flur(flaeche, room.Number, feuerloescherListe, material);
-                return "9";
-            }
+                return "2-Büroarbeit";
+            if (r is Flur)
+                return "1-Wohnen und Aufenthalt";
+            if (r is Sanitaerraum)
+                return "7-Sonstige Nutzflächen";
+            if (r is Seminarraum)
+                return "3-Produktion/Hand-Maschinenarbeit/Experimente";
             else return "";
         }
-
-
         #endregion
 
     }
