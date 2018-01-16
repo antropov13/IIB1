@@ -52,3 +52,12 @@ Mkfile.old
 dkms.conf
 *.config
 *.cache
+*.ide-shm
+*.ide-wal
+IIB1_UE1-master/IIB1_Hausübung_1/IIB1_UE1_Gruppe02/IIB1_UE1_Gruppe02/IIB1_UE1_Gruppe02_Projektordner/GUI/.vs/IIB1_UE1_Gruppe02_GUI/v15/.suo
+*.ide
+*.ide-shm
+IIB1_UE1-master/IIB1_Hausübung_1/IIB1_UE1_Gruppe02/IIB1_UE1_Gruppe02/IIB1_UE1_Gruppe02_Projektordner/GUI/.vs/IIB1_UE1_Gruppe02_GUI/v15/Server/sqlite3/storage.ide-wal
+IIB1_UE1-master/IIB1_Hausübung_1/IIB1_UE1_Gruppe02/IIB1_UE1_Gruppe02/IIB1_UE1_Gruppe02_Projektordner/GUI/.vs/IIB1_UE1_Gruppe02_GUI/v15/Server/sqlite3/storage.ide-shm
+IIB1_UE1-master/IIB1_Hausübung_1/IIB1_UE1_Gruppe02/IIB1_UE1_Gruppe02/IIB1_UE1_Gruppe02_Projektordner/GUI/.vs/IIB1_UE1_Gruppe02_GUI/v15/Server/sqlite3/storage.ide
+IIB1_UE1-master/IIB1_Hausübung_1/IIB1_UE1_Gruppe02/IIB1_UE1_Gruppe02/IIB1_UE1_Gruppe02_Projektordner/GUI/.vs/IIB1_UE1_Gruppe02_GUI/v15/.suo

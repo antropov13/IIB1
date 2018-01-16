@@ -19,6 +19,16 @@ namespace Klassen
         protected BindingList<Feuerloescher> feuerloescherList;
         protected String typRaum;
         protected double heizwert;
+        protected String revitID;
+
+        public string RaumName
+        {
+            get { return this.GetType().Name + bezeichung; }
+        }
+        public string RevitId
+        {
+            get { return revitID; }
+        }
         //protected double brandgefahr;
 
         //Properties der Klasse
@@ -57,6 +67,7 @@ namespace Klassen
             this.loeschmitteleinheiten = _raum.loeschmitteleinheiten;
             this.materialien = _raum.materialien;
             this.heizwert = _raum.heizwert;
+            this.revitID = _raum.revitID;
         }
 
         //Allgemeiner Konstruktor2
@@ -67,6 +78,18 @@ namespace Klassen
             this.loeschmitteleinheiten = countLoeschmitteleinheiten(_grundflaeche);
             this.feuerloescherList = _feuerloecher;
             this.materialien = _materialien;
+
+        }
+
+        //Allgemeiner Konstruktor3
+        public Raum(double _grundflaeche, String _bezeichnung, BindingList<Feuerloescher> _feuerloecher, Material _materialien, string _revitId)
+        {
+            this.bezeichung = _bezeichnung;
+            this.grundflaeche = _grundflaeche;
+            this.loeschmitteleinheiten = countLoeschmitteleinheiten(_grundflaeche);
+            this.feuerloescherList = _feuerloecher;
+            this.materialien = _materialien;
+            this.revitID = _revitId;
 
         }
 

@@ -31,11 +31,29 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AdWindows">
+      <HintPath>..\..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2017\AdWindows.dll</HintPath>
+    </Reference>
     <Reference Include="Klassen">
       <HintPath>..\..\Klassen\Klassen\bin\Debug\Klassen.dll</HintPath>
     </Reference>
+    <Reference Include="RevitAPI">
+      <HintPath>..\..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2017\RevitAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="RevitAPIIFC">
+      <HintPath>..\..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2017\RevitAPIIFC.dll</HintPath>
+    </Reference>
+    <Reference Include="RevitAPIMacros">
+      <HintPath>..\..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2017\RevitAPIMacros.dll</HintPath>
+    </Reference>
     <Reference Include="RevitAPIUI">
       <HintPath>..\..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2017\RevitAPIUI.dll</HintPath>
+    </Reference>
+    <Reference Include="RevitAPIUIMacros">
+      <HintPath>..\..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2017\RevitAPIUIMacros.dll</HintPath>
+    </Reference>
+    <Reference Include="RevitUIAPI">
+      <HintPath>..\..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2017\RevitUIAPI.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -110,6 +128,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

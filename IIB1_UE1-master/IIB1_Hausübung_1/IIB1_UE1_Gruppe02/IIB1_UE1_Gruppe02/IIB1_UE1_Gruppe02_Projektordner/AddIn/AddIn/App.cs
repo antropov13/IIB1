@@ -2,7 +2,6 @@
 using System.IO;
 using System.Windows.Media.Imaging;
 using Autodesk.Revit.UI;
-
 using Autodesk.Revit.DB.Architecture;
 using GUI;
 using Klassen;
@@ -73,64 +72,6 @@ namespace AddIn
         #endregion
 
         #region Methoden
-        /// <summary>
-        /// Diese Methode ruft das Fenster auf.
-        /// Quelle: https://knowledge.autodesk.com/search-result/caas/CloudHelp/cloudhelp/2016/ENU/Revit-API/files/GUID-0A0D656E-5C44-49E8-A891-6C29F88E35C0-htm.html
-        /// </summary>
-        /// 
-
-        private static BindingList<Feuerloescher> feuerlocherList = new BindingList<Feuerloescher>();
-
-        private static void createFeuerloecher()
-        {
-            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "5A/21B", Loescheinheit = 1, Preis = 20 });
-            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "8A/34B", Loescheinheit = 2, Preis = 40 });
-            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "55B", Loescheinheit = 3, Preis = 60 });
-            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "13A/70B", Loescheinheit = 4, Preis = 80 });
-            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "89B", Loescheinheit = 5, Preis = 100 });
-            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "21A/113B", Loescheinheit = 6, Preis = 120 });
-            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "27A/144B", Loescheinheit = 9, Preis = 140 });
-            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "34A", Loescheinheit = 10, Preis = 160 });
-            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "43A / 183B", Loescheinheit = 12, Preis = 180 });
-            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "55A/233B", Loescheinheit = 15, Preis = 200 });
-        }
-
-        public void ShowForm(UIApplication uiapp)
-        {
-            // If we do not have a dialog yet, create and show it
-            if (revitAppForm == null || revitAppForm.IsDisposed)
-            {
-                // We give the objects to the new dialog;
-                // The dialog becomes the owner responsible for disposing them, eventually.
-                UIApplication mapp = uiapp;
-                UIDocument mdoc = mapp.ActiveUIDocument;
-                Util.Doc = mdoc.Document;
-
-                BindingList<Raum> meineRaeume = new BindingList<Raum>();
-
-                List<Element> Rooms = new FilteredElementCollector(mdoc.Document).OfClass(typeof(SpatialElement)).
-                        WhereElementIsNotElementType().Where(room => room.GetType() == typeof(Room)).ToList();
-                BindingList<Raum> raeume = new BindingList<Raum>();
-                foreach (Element e in Rooms)
-                {
-                    Raum r = Util.parseRaum((Room)e);
-                    if (r != null)
-                        meineRaeume.Add(r);
-                }
-
-                //Aufrufen der Form
-                revitAppForm = new FormMain(meineRaeume, feuerlocherList);
-                revitAppForm.Show();
-            }
-        }
-
-        /// <summary>
-        /// In dieser Methode wird das Ribbonpanel mit einem Button erzeugt.
-        /// Weitere Informationen unter:
-        /// https://knowledge.autodesk.com/search-result/caas/CloudHelp/cloudhelp/2017/ENU/Revit-API/files/GUID-1547E521-59BD-4819-A989-F5A238B9F2B3-htm.html
-        /// </summary>
-        /// <param name="application">An object that is passed to the external application 
-        /// which contains the controlled application.</param>
         private void CreateRibbonSamplePanel(UIControlledApplication application)
         {
             // erstellt ein neues Ribbonpanel mit einem Push Button 
@@ -149,7 +90,66 @@ namespace AddIn
             //Beschreibung, die erscheint, wenn man über den Button hovert.
             myButton.ToolTip = "Öffnet ein Tool, in dem erforderliche Feuerlöscher bestimmt werden können.";
         }
+
+        private static BindingList<Feuerloescher> feuerlocherList = new BindingList<Feuerloescher>();
+
+        private static void createFeuerloecher()
+        {
+            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "5A/21B", Loescheinheit = 1, Preis = 20 });
+            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "8A/34B", Loescheinheit = 2, Preis = 40 });
+            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "55B", Loescheinheit = 3, Preis = 60 });
+            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "13A/70B", Loescheinheit = 4, Preis = 80 });
+            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "89B", Loescheinheit = 5, Preis = 100 });
+            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "21A/113B", Loescheinheit = 6, Preis = 120 });
+            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "27A/144B", Loescheinheit = 9, Preis = 140 });
+            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "34A", Loescheinheit = 10, Preis = 160 });
+            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "43A / 183B", Loescheinheit = 12, Preis = 180 });
+            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "55A/233B", Loescheinheit = 15, Preis = 200 });
+        }
+
+        public void ShowForm(BindingList<Raum> revitRaeume)
+        {
+            // If we do not have a dialog yet, create and show it
+            if (revitAppForm == null || revitAppForm.IsDisposed)
+            {
+                RaumdatenUpdater updateHandler = new RaumdatenUpdater();
+
+                ExternalEvent updateEvent = ExternalEvent.Create(updateHandler);
+
+
+                //revitAppForm = new FormMain(updateEvent, feuerlocherList ,revitRaeume);
+                revitAppForm = new FormMain(revitRaeume, feuerlocherList);
+                revitAppForm.Show();
+            }
+        }
         #endregion
 
+        #region ExternalEventhandler
+        public class RaumdatenUpdater : IExternalEventHandler
+        {
+            public void Execute(UIApplication app)
+            {
+                Util.updateRaumDaten(revitAppForm.Raeume);
+            }
+
+            public string GetName()
+            {
+                return "RaumdatenUpdater";
+            }
+        }
+        /*
+        public class LampenPlatzierer : IExternalEventHandler
+        {
+            public void Execute(UIApplication app)
+            {
+                Util.platziereLampen(demoForm.Raeume);
+            }
+
+            public string GetName()
+            {
+                return "LampenPlatzierer";
+            }
+        }*/
+        #endregion
     }
 }

@@ -73,6 +73,70 @@ namespace AddIn
             double quadratmeter = (squarefeet / 10.7639);
             return Math.Round(quadratmeter, 2);
         }
+
+        public static void updateRaumDaten(BindingList<Raum> raeume)
+        {
+            aendereBekannteProperties(raeume);
+            //aendereNeueProperties(raeume);
+        }
+
+        private static void aendereBekannteProperties(BindingList<Raum> raeume)
+        {
+            try
+            {
+                bool worked;
+                foreach (Raum r in raeume)
+                {
+                    if (r.RevitId != null)
+                    {
+                        Room room = (Room)doc.GetElement(r.RevitId);
+                        using (Transaction trans = new Transaction(doc))
+                        {
+                            if (trans.Start("ChangeRoomParameters") == TransactionStatus.Started)
+                            {
+                                room.Name = r.Bezeichung;
+                                if (zugehörigeNutzungsart(r) != "")
+                                    worked = room.GetParameters("Raumschlüssel").First().Set(zugehörigeNutzungsart(r));
+                                trans.Commit();
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                TaskDialog.Show("", e.Message);
+            }
+        }
+
+        private static string zugehörigeNutzungsart(Raum r)
+        {
+            //string raumtyp = room.GetParameters("Raumschlüssel")[0].AsValueString();
+
+            if (r is Buero)
+            {
+                //Buero buero = new Buero(flaeche, room.Number, feuerloescherListe, material);
+                return "2";
+            }
+            else if (r is Seminarraum)
+            {
+                //Seminarraum seminarraum = new Seminarraum(flaeche, room.Number, feuerloescherListe, material);
+                return "5";
+            }
+            else if (r is Sanitaerraum)
+            {
+                //Sanitaerraum sanitaerraum = new Sanitaerraum(flaeche, room.Number, feuerloescherListe, material);
+                return "7";
+            }
+            else if (r is Flur)
+            {
+                //Flur flur = new Flur(flaeche, room.Number, feuerloescherListe, material);
+                return "9";
+            }
+            else return "";
+        }
+
+
         #endregion
 
     }
