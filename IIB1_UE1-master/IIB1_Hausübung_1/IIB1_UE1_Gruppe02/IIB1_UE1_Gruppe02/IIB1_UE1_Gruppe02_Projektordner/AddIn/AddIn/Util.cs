@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Klassen;
 using GUI;
 using Autodesk.Revit.DB.Structure;
+using System.Text.RegularExpressions;
 
 namespace AddIn
 {
@@ -86,10 +87,46 @@ namespace AddIn
                 {
                     //double fensterFlaeche = groessteFensterflaeche(fi); public Feuerloescher(string _bezeichnung, int _loescheinheit, double _preis);
                     //Fenster fenster = new Fenster(Util.squarefeetToQuadratmeter(fensterFlaeche), fi.Name, fi.Symbol.ToString());
-                    int le = 0;
-                    int pr = 0;
-                    Feuerloescher feuerloescher = new Feuerloescher(fi.Name, le, pr);
-                    feuerloescherListe.Add(feuerloescher);
+                    int leInt = 0;
+                    int preisInt = 0;
+
+                    FamilySymbol s = GetFamilySymbolByName(BuiltInCategory.OST_SpecialityEquipment, fi.Name);
+
+                    foreach (Parameter p in s.Parameters){
+                        if (p.Definition.Name.Equals("Kosten"))
+                        {
+                            string preis = p.AsValueString();
+                            preisInt = Convert.ToInt32(Regex.Replace(preis, @"[^\d]+", ""));
+
+                        }
+
+                        else if (p.Definition.Name.Equals("Loescheinheit"))
+                        {
+                            string LE = p.AsValueString();
+                            leInt = Convert.ToInt32(LE);
+                        }
+                    }
+
+                    Feuerloescher feuerloescher = new Feuerloescher(fi.Name, leInt, preisInt);
+                    //feuerloescher.Anzahl = 1;
+
+                    //feuerloescherListe.Add(feuerloescher);
+                    bool flag = false;
+                    foreach(Feuerloescher f in feuerloescherListe)
+                    {
+                        if (f.Bezeichnung.Equals(feuerloescher.Bezeichnung))
+                        {
+                            f.Anzahl += 1;
+                            flag = true;
+                            break;
+                        }
+                    }
+                    if (!flag)
+                    {
+                        feuerloescher.Anzahl = 1;
+                        feuerloescherListe.Add(feuerloescher);
+                    }
+
                 }
                 return feuerloescherListe;
             }
@@ -102,6 +139,35 @@ namespace AddIn
             ElementCategoryFilter filter = new ElementCategoryFilter(BuiltInCategory.OST_SpecialityEquipment);
             FilteredElementCollector collector = new FilteredElementCollector(doc);
             alleFeuerloescher = collector.WherePasses(filter).WhereElementIsNotElementType().ToElements();
+            listFeuerloescherSuebern();
+        }
+
+        public static void listFeuerloescherSuebern()
+        {
+            IList<Element> alleFeuerloescherBuffer = new List<Element>();
+            //int count = alleFeuerloescher.Count;
+            //TaskDialog.Show("Count:", count.ToString());
+            foreach (Element e in alleFeuerloescher)
+            {
+                FamilyInstance fi = (FamilyInstance)e;
+                FamilySymbol s = GetFamilySymbolByName(BuiltInCategory.OST_SpecialityEquipment, fi.Name);
+
+                foreach (Parameter p in s.Parameters)
+                {
+                    if (p.Definition.Name.Equals("Beschreibung"))
+                    {
+                        string beschreibung = p.AsString();
+                        if (beschreibung=="Feuerloescher")
+                        {
+                            alleFeuerloescherBuffer.Add(e);
+                        }
+                    }
+                }
+            }
+            alleFeuerloescher.Clear();
+            alleFeuerloescher = alleFeuerloescherBuffer;
+            //count = alleFeuerloescher.Count;
+            //TaskDialog.Show("Count:", count.ToString());
         }
 
         /// <summary>
@@ -116,16 +182,78 @@ namespace AddIn
             foreach (Element e in alleFeuerloescher)
             {
                 FamilyInstance fi = (FamilyInstance)e;
-                //if ((fi.ToRoom != null && fi.ToRoom.Number.Equals(room.Number)) || (fi.FromRoom != null && fi.FromRoom.Number.Equals(room.Number)))
-                //if (fi.GetParameters("Preis").Equals(10))
-                //{
-                if (fi.Name.Equals("5A/21B") && fi.Room != null && fi.Room.Number.Equals(room.Number)) { 
+                FamilySymbol s = GetFamilySymbolByName(BuiltInCategory.OST_SpecialityEquipment, fi.Name);
 
-                    TaskDialog.Show("FL", fi.Name);
+                if (fi.Room != null && fi.Room.Number.Equals(room.Number)) {
+
+                    foreach(Parameter p in s.Parameters)
+                    {
+                        if (p.Definition.Name.Equals("Beschreibung"))
+                        {
+                            //TaskDialog.Show("Par:", p.Definition.Name);
+                            string beschreibung = p.AsString();
+                            //TaskDialog.Show("Beschreibung:", preis);
+                        }
+                        if (p.Definition.Name.Equals("Kosten"))
+                        {
+                           // TaskDialog.Show("Par:", p.Definition.Name);
+                            string preis = p.AsValueString();
+                            //TaskDialog.Show("Kosten:", preis);
+                        }
+
+                        if (p.Definition.Name.Equals("Loescheinheit"))
+                        {
+                            //TaskDialog.Show("Par:", p.Definition.Name);
+                            string LE = p.AsValueString();
+                            //TaskDialog.Show("Loescheinheit:", preis);
+                        }
+                    }
                     alleRaumFeuerloescher.Add(fi);
                 }
             }
             return alleRaumFeuerloescher;
+        }
+
+        public void GetFamilyTypesInFamily(Document familyDoc)
+        {
+            if (familyDoc.IsFamilyDocument == true)
+            {
+                FamilyManager familyManager = familyDoc.FamilyManager;
+
+                // get types in family
+                string types = "Family Types: ";
+                FamilyTypeSet familyTypes = familyManager.Types;
+                FamilyTypeSetIterator familyTypesItor = familyTypes.ForwardIterator();
+                familyTypesItor.Reset();
+                while (familyTypesItor.MoveNext())
+                {
+                    FamilyType familyType = familyTypesItor.Current as FamilyType;
+                    types += "\n" + familyType.Name;
+                }
+                //MessageBox.Show(types, "Revit");
+            }
+        }
+
+        private static double preisFeuerloscher(FamilyInstance feuerloescher)
+        {
+            double re = 0;
+            Autodesk.Revit.DB.Options opt = new Options();
+            //GeometryElement geomFenster = ;
+            
+            /*foreach (GeometryObject geomObj in geomFenster)
+            {
+                Solid geomSolid = geomObj as Solid;
+                if (geomSolid != null)
+                {
+                    foreach (Face geomFace in geomSolid.Faces)
+                    {
+                        if (geomFace.Area > re)
+                            re = geomFace.Area;
+                    }
+                }
+            }
+            */
+            return re;
         }
 
         public static double squarefeetToQuadratmeter(double squarefeet)

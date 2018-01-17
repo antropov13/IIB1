@@ -103,7 +103,7 @@ namespace AddIn
             feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "21A/113B", Loescheinheit = 6, Preis = 120 });
             feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "27A/144B", Loescheinheit = 9, Preis = 140 });
             feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "34A", Loescheinheit = 10, Preis = 160 });
-            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "43A / 183B", Loescheinheit = 12, Preis = 180 });
+            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "43A/183B", Loescheinheit = 12, Preis = 180 });
             feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "55A/233B", Loescheinheit = 15, Preis = 200 });
         }
 
