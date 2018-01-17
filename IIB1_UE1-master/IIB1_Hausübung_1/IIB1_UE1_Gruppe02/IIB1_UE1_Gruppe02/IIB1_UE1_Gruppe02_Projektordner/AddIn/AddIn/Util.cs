@@ -116,8 +116,14 @@ namespace AddIn
             foreach (Element e in alleFeuerloescher)
             {
                 FamilyInstance fi = (FamilyInstance)e;
-                if ((fi.ToRoom != null && fi.ToRoom.Number.Equals(room.Number)) || (fi.FromRoom != null && fi.FromRoom.Number.Equals(room.Number)))
+                //if ((fi.ToRoom != null && fi.ToRoom.Number.Equals(room.Number)) || (fi.FromRoom != null && fi.FromRoom.Number.Equals(room.Number)))
+                //if (fi.GetParameters("Preis").Equals(10))
+                //{
+                if (fi.Name.Equals("5A/21B") && fi.Room != null && fi.Room.Number.Equals(room.Number)) { 
+
+                    TaskDialog.Show("FL", fi.Name);
                     alleRaumFeuerloescher.Add(fi);
+                }
             }
             return alleRaumFeuerloescher;
         }
@@ -196,7 +202,7 @@ namespace AddIn
                     if (trans.Start("PlaceFamily") == TransactionStatus.Started)
                     {
                         FamilyInstance fi = doc.Create.NewFamilyInstance(locR,
-                            GetFamilySymbolByName(BuiltInCategory.OST_LightingFixtures, "5A/21B")
+                            GetFamilySymbolByName(BuiltInCategory.OST_SpecialityEquipment, "5A/21B")
                             , StructuralType.NonStructural);
                         trans.Commit();
                     }
