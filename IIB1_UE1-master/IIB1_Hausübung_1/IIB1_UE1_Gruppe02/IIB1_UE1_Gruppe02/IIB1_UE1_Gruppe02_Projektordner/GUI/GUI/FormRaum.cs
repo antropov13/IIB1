@@ -291,9 +291,11 @@ namespace GUI
         public void feuerloescheLoeschen(Feuerloescher f = null)
         {
             //Feuerlöscher löschen
-            if (f==null)
-                raum.FeuerloescherList.Remove((Feuerloescher)listBoxFeuerlocher.SelectedItem);
-            else raum.FeuerloescherList.Remove(f);
+            if (f == null)
+                //raum.FeuerloescherList.Remove((Feuerloescher)listBoxFeuerlocher.SelectedItem);
+                raum.entferneFeuerloescher((Feuerloescher)listBoxFeuerlocher.SelectedItem);
+            else //raum.FeuerloescherList.Remove(f);
+                raum.entferneFeuerloescher(f);
             feuerloescherUpdate(0);
         }
 
@@ -302,7 +304,8 @@ namespace GUI
             //Feuerlöscher hinzufügen oder ändern
             if (raum.FeuerloescherList.IndexOf(feuerloescher) == -1)
             {
-                raum.FeuerloescherList.Add(feuerloescher);
+                //raum.FeuerloescherList.Add(feuerloescher);
+                raum.feueloescherHinzu(feuerloescher);
                 feuerloescherUpdate(raum.FeuerloescherList.Count-1);
             }
             else

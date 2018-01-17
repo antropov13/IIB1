@@ -93,6 +93,16 @@ namespace Klassen
 
         }
 
+        public void feueloescherHinzu(Feuerloescher f)
+        {
+            feuerloescherList.Add(f);
+        }
+
+        public void entferneFeuerloescher(Feuerloescher f)
+        {
+            feuerloescherList.Remove(f);
+        }
+
         public int countLoeschmitteleinheiten(double raumflaeche)
         {
 

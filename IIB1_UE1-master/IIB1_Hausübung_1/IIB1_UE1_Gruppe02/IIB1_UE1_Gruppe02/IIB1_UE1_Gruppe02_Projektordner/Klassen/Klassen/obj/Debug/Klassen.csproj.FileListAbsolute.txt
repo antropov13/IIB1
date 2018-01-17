@@ -12,3 +12,4 @@ C:\Users\igora\Desktop\IIB1_UE1-master\IIB1_UE1-master\IIB1_Hausübung_1\IIB1_UE
 C:\Users\igora\Desktop\IIB1_UE1-master\IIB1_UE1-master\IIB1_Hausübung_1\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\Klassen\Klassen\obj\Debug\Klassen.pdb
 C:\Users\igora\Desktop\IIB1_UE1-master\IIB1_UE1-master\IIB1_Hausübung_1\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\Klassen\Klassen\bin\Debug\Klassen.dll
 C:\Users\igora\Desktop\IIB1_UE1-master\IIB1_UE1-master\IIB1_Hausübung_1\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\Klassen\Klassen\bin\Debug\Klassen.pdb
+C:\Users\igora\Desktop\IIB1_UE1-master\IIB1_UE1-master\IIB1_Hausübung_1\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\Klassen\Klassen\obj\Debug\Klassen.csprojResolveAssemblyReference.cache

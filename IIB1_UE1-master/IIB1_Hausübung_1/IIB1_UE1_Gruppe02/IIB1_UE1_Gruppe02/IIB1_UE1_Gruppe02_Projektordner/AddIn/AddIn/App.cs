@@ -113,11 +113,13 @@ namespace AddIn
             if (revitAppForm == null || revitAppForm.IsDisposed)
             {
                 RaumdatenUpdater updateHandler = new RaumdatenUpdater();
+                //FeuerloescherPlatzierer feuerloescherHandler = new FeuerloescherPlatzierer();
 
                 ExternalEvent updateEvent = ExternalEvent.Create(updateHandler);
+                //ExternalEvent feuerloescherEvent = ExternalEvent.Create(feuerloescherHandler);
 
-
-                revitAppForm = new FormMain(updateEvent, feuerlocherList ,revitRaeume);
+                //revitAppForm = new FormMain(updateEvent, feuerloescherEvent, revitRaeume);
+                revitAppForm = new FormMain(updateEvent, feuerlocherList, revitRaeume);
                 revitAppForm.Show();
             }
         }
@@ -136,19 +138,19 @@ namespace AddIn
                 return "RaumdatenUpdater";
             }
         }
-        /*
-        public class LampenPlatzierer : IExternalEventHandler
+        
+        public class FeuerloescherPlatzierer : IExternalEventHandler
         {
             public void Execute(UIApplication app)
             {
-                Util.platziereLampen(demoForm.Raeume);
+                Util.platziereFeuerloescher(revitAppForm.Raeume);
             }
 
             public string GetName()
             {
-                return "LampenPlatzierer";
+                return "FeuerlöscherPlatzierer";
             }
-        }*/
+        }
         #endregion
     }
 }

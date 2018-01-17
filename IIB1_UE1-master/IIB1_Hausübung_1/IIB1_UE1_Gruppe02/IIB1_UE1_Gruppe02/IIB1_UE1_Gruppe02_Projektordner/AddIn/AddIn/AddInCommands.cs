@@ -27,7 +27,7 @@ namespace AddIn
 
             List<Element> Rooms = new FilteredElementCollector(mdoc.Document).OfClass(typeof(SpatialElement)).
                     WhereElementIsNotElementType().Where(room => room.GetType() == typeof(Room)).ToList();
-            //Util.holeAlleFenster();
+            Util.holeAlleFeuerloescher();
             BindingList<Raum> raeume = new BindingList<Raum>();
 
             foreach (Element e in Rooms)

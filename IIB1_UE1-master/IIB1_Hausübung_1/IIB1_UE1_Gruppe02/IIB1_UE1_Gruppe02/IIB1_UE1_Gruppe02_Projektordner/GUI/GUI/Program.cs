@@ -101,7 +101,7 @@ namespace GUI
                 //Material sanitaerraumMaterial = new Material();
 
                 //Konstruktor der Räume aufrufen
-                Buero buero = new Buero(bueroFlaeche, bezeichnungBueroRaum, bueroFeuerlocherListe, bueroMaterial);
+                Buero buero = new Buero(bueroFlaeche, bezeichnungBueroRaum, bueroFeuerlocherListe, bueroMaterial, "");
                 //Flur flur = new Flur(flurFlaeche, bezeichnungFlurRaum, flurFeuerlocherListe, flurMaterial);
                 //Seminarraum seminarraum = new Seminarraum(seminarraumFlaeche, bezeichnungSeminarRaum, seminarraumFeuerlocherListe, seminarraumMaterial);
                 //Sanitaerraum sanitaerraum = new Sanitaerraum(satinaerramFlaeche, bezeichnunSanitaerRaum, sanitaerraumFeuerlocherListe, sanitaerraumMaterial);

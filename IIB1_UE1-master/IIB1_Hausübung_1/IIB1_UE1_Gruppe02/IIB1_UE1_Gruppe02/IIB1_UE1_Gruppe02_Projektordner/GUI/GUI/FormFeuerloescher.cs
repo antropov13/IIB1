@@ -172,6 +172,7 @@ namespace GUI
             feuerloescher.Bezeichnung = comboBoxBezeichnungFeuerloescher.Text;
             ((FormRaum)Owner).feuerloescherHinzufuegen(feuerloescher);
             if (neuer) feuerloescher = null;
+            //raum.feueloescherHinzu(feuerloescher);
             fuelleBoxen();
         }
 
@@ -179,6 +180,7 @@ namespace GUI
         {
             //Löschen Feuerlöscher aus dem Raum
             ((FormRaum)Owner).feuerloescheLoeschen(f: (Feuerloescher)comboBoxBezeichnungFeuerloescher.SelectedItem);
+            //raum.entferneFeuerloescher(feuerloescher);
             fuelleBoxen();
         }
 

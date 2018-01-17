@@ -19,15 +19,23 @@ namespace GUI
         private BindingList<Raum> raeume;
         public BindingList<Feuerloescher> feuerloescherList;
         private ExternalEvent ex_updateEvent;
-        private ExternalEvent ex_lampenEvent;
+        private ExternalEvent ex_feuerloescherEvent;
         private listBoxRaumItems item;
 
         public BindingList<Raum> Raeume { get { return raeume; } }
 
-       public FormMain(ExternalEvent update, BindingList<Feuerloescher> _feuerloescherList, BindingList<Raum> _raeume)
+        public FormMain(ExternalEvent update, ExternalEvent feuerloescher, BindingList<Raum> _raeume)
         {
             this.ex_updateEvent = update;
-            //this.ex_lampenEvent = lampen;
+            this.ex_feuerloescherEvent = feuerloescher;
+            InitializeComponent();
+            this.raeume = _raeume;
+            fuelleListe();
+        }
+
+        public FormMain(ExternalEvent update, BindingList<Feuerloescher> _feuerloescherList, BindingList<Raum> _raeume)
+        {
+            this.ex_updateEvent = update;
             InitializeComponent();
             this.raeume = _raeume;
             this.feuerloescherList = _feuerloescherList;
@@ -284,6 +292,11 @@ namespace GUI
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
             ex_updateEvent.Raise();
+        }
+
+        private void buttonFeuerloescherPlazieren_Click(object sender, EventArgs e)
+        {
+            ex_feuerloescherEvent.Raise();
         }
     }
 }
