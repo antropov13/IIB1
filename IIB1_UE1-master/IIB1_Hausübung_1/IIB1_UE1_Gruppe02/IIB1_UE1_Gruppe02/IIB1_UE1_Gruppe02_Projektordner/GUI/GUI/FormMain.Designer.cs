@@ -46,6 +46,7 @@
             this.textBoxGesamptpreis = new System.Windows.Forms.TextBox();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonFeuerloescherPlazieren = new System.Windows.Forms.Button();
+            this.buttonAktualisieren = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,7 +65,7 @@
             this.listBoxRaum.FormattingEnabled = true;
             this.listBoxRaum.Location = new System.Drawing.Point(15, 79);
             this.listBoxRaum.Name = "listBoxRaum";
-            this.listBoxRaum.Size = new System.Drawing.Size(227, 290);
+            this.listBoxRaum.Size = new System.Drawing.Size(227, 303);
             this.listBoxRaum.TabIndex = 6;
             this.listBoxRaum.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBoxRaum_DrawItem);
             this.listBoxRaum.DoubleClick += new System.EventHandler(this.buttonRaumDetail_Click);
@@ -139,7 +140,7 @@
             // 
             // buttonabbrechen
             // 
-            this.buttonabbrechen.Location = new System.Drawing.Point(248, 346);
+            this.buttonabbrechen.Location = new System.Drawing.Point(248, 360);
             this.buttonabbrechen.Name = "buttonabbrechen";
             this.buttonabbrechen.Size = new System.Drawing.Size(119, 23);
             this.buttonabbrechen.TabIndex = 10;
@@ -169,7 +170,7 @@
             // 
             // labelGesamptpreis
             // 
-            this.labelGesamptpreis.Location = new System.Drawing.Point(248, 163);
+            this.labelGesamptpreis.Location = new System.Drawing.Point(248, 195);
             this.labelGesamptpreis.Name = "labelGesamptpreis";
             this.labelGesamptpreis.Size = new System.Drawing.Size(119, 60);
             this.labelGesamptpreis.TabIndex = 13;
@@ -178,7 +179,7 @@
             // 
             // textBoxGesamptpreis
             // 
-            this.textBoxGesamptpreis.Location = new System.Drawing.Point(248, 226);
+            this.textBoxGesamptpreis.Location = new System.Drawing.Point(248, 258);
             this.textBoxGesamptpreis.Name = "textBoxGesamptpreis";
             this.textBoxGesamptpreis.ReadOnly = true;
             this.textBoxGesamptpreis.Size = new System.Drawing.Size(119, 20);
@@ -187,7 +188,7 @@
             // 
             // buttonUpdate
             // 
-            this.buttonUpdate.Location = new System.Drawing.Point(248, 314);
+            this.buttonUpdate.Location = new System.Drawing.Point(248, 328);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(119, 26);
             this.buttonUpdate.TabIndex = 15;
@@ -197,7 +198,7 @@
             // 
             // buttonFeuerloescherPlazieren
             // 
-            this.buttonFeuerloescherPlazieren.Location = new System.Drawing.Point(248, 270);
+            this.buttonFeuerloescherPlazieren.Location = new System.Drawing.Point(248, 284);
             this.buttonFeuerloescherPlazieren.Name = "buttonFeuerloescherPlazieren";
             this.buttonFeuerloescherPlazieren.Size = new System.Drawing.Size(119, 38);
             this.buttonFeuerloescherPlazieren.TabIndex = 16;
@@ -205,11 +206,22 @@
             this.buttonFeuerloescherPlazieren.UseVisualStyleBackColor = true;
             this.buttonFeuerloescherPlazieren.Click += new System.EventHandler(this.buttonFeuerloescherPlazieren_Click);
             // 
+            // buttonAktualisieren
+            // 
+            this.buttonAktualisieren.Location = new System.Drawing.Point(248, 166);
+            this.buttonAktualisieren.Name = "buttonAktualisieren";
+            this.buttonAktualisieren.Size = new System.Drawing.Size(119, 26);
+            this.buttonAktualisieren.TabIndex = 17;
+            this.buttonAktualisieren.Text = "Aktualisieren";
+            this.buttonAktualisieren.UseVisualStyleBackColor = true;
+            this.buttonAktualisieren.Click += new System.EventHandler(this.buttonAktualisieren_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 383);
+            this.ClientSize = new System.Drawing.Size(379, 427);
+            this.Controls.Add(this.buttonAktualisieren);
             this.Controls.Add(this.buttonFeuerloescherPlazieren);
             this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.textBoxGesamptpreis);
@@ -251,6 +263,7 @@
         private System.Windows.Forms.TextBox textBoxGesamptpreis;
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Button buttonFeuerloescherPlazieren;
+        private System.Windows.Forms.Button buttonAktualisieren;
     }
 }
 

@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Autodesk.Revit.UI;
+using System.Diagnostics;
 
 namespace GUI
 {
@@ -65,7 +66,8 @@ namespace GUI
                     comboBoxTypRaum.Items.Add(r.TypRaume);
             }
 
-            comboBoxTypRaum.SelectedIndex = 0;    
+            comboBoxTypRaum.SelectedIndex = 0;
+            listBoxUpdate();
             
         }
 
@@ -117,9 +119,9 @@ namespace GUI
             }
             catch { }
         }
-        private void listBoxUpdate()
+        public void listBoxUpdate()
         {
-            //Aktulisierung ListBox mit deb Räume
+            //Aktulisierung ListBox mit der Räume
             listBoxRaum.Items.Clear();
             listBoxRaum.DrawMode = DrawMode.OwnerDrawFixed;
             listBoxRaum.DrawItem += listBoxRaum_DrawItem;
@@ -298,6 +300,12 @@ namespace GUI
         private void buttonFeuerloescherPlazieren_Click(object sender, EventArgs e)
         {
             ex_feuerloescherEvent.Raise();
+
+        }
+
+        private void buttonAktualisieren_Click(object sender, EventArgs e)
+        {
+            listBoxUpdate();
         }
     }
 }

@@ -11,6 +11,7 @@ using Klassen;
 using GUI;
 using Autodesk.Revit.DB.Structure;
 using System.Text.RegularExpressions;
+using System.Diagnostics;
 
 namespace AddIn
 {
@@ -29,6 +30,7 @@ namespace AddIn
                 doc = value;
             }
         }
+
         #endregion
 
         #region Methoden
@@ -198,7 +200,11 @@ namespace AddIn
         public static void updateRaumDaten(BindingList<Raum> raeume)
         {
             aendereBekannteProperties(raeume);
-            //aendereNeueProperties(raeume);
+            aendereNeueProperties(raeume);
+        }
+
+        private static void aendereNeueProperties(BindingList<Raum> raeume)
+        {
         }
 
         private static void aendereBekannteProperties(BindingList<Raum> raeume)
@@ -247,15 +253,22 @@ namespace AddIn
 
         public static void platziereFeuerloescher(BindingList<Raum> raeume)
         {
+            Feuerloescher f = new Feuerloescher("5A/21B", 1, 20);
+            f.Anzahl = 1;
             foreach (Raum r in raeume)
+            {
+                r.feueloescherHinzu(f);
                 platziereFeuerloescherInRaum(r);
+            }
         }
+
 
         private static void platziereFeuerloescherInRaum(Raum r)
         {
             //TaskDialog.Show("ID, Name", r.Bezeichung);
-            Room rr = doc.GetElement(r.RevitId) as Room;
-            XYZ locR = ((LocationPoint)rr.Location).Point;
+            Room rr = (Room)doc.GetElement(r.RevitId);
+            //XYZ locR = ((LocationPoint)rr.Location).Point;
+            XYZ locR = new XYZ(12, 13, 0 + 10); ;
             if (null != locR)
             {
                 using (Transaction trans = new Transaction(doc))
@@ -266,13 +279,10 @@ namespace AddIn
                             GetFamilySymbolByName(BuiltInCategory.OST_SpecialityEquipment, "8A/34B")
                             , StructuralType.NonStructural);
                         trans.Commit();
-                        
-
-
-                        //if (TransactionStatus.Committed != trans.Commit())
-                        //{
-                        //    TaskDialog.Show("Failure", "Transaction could not be committed");
-                        //}
+                        Debug.WriteLine("Raum id:" + rr.UniqueId + " - " +r.RevitId);
+                        Debug.WriteLine("Raum Name:" + rr.Name + " - " + r.Bezeichung);
+                        Debug.WriteLine("locR:" + locR);
+                        Debug.WriteLine("");
                     }
                 }
             }
