@@ -74,12 +74,22 @@ namespace GUI
                     trackBarAnzahlFeuerloescher.Enabled = false;
                 }
 
+                //textBoxAnzahlFeuerloschen.Text = raum.FeuerloescherList.Count.ToString();
+                //label2.Text = raum.FeuerloescherList.Count.ToString();
+                bool flag = false;
                 foreach (Feuerloescher f in feuerloescherList)
                 {
-                    if (raum.FeuerloescherList.IndexOf(f) == -1)
+                    flag = false;
+                    foreach(Feuerloescher fr in raum.FeuerloescherList)
                     {
-                            comboBoxBezeichnungFeuerloescher.Items.Add(f);
+                        if (fr.Bezeichnung==f.Bezeichnung)
+                        {
+                            flag = true;
+                            break;
+                        }
                     }
+                    if (!flag)
+                        comboBoxBezeichnungFeuerloescher.Items.Add(f);
                 }
                 if(comboBoxBezeichnungFeuerloescher.Items.Count > 0)
                     comboBoxBezeichnungFeuerloescher.SelectedIndex = 0;

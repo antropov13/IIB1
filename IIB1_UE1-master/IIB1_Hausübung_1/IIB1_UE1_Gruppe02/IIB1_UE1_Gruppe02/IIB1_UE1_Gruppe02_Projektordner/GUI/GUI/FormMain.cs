@@ -24,10 +24,11 @@ namespace GUI
 
         public BindingList<Raum> Raeume { get { return raeume; } }
 
-        public FormMain(ExternalEvent update, ExternalEvent feuerloescher, BindingList<Raum> _raeume)
+        public FormMain(ExternalEvent update, ExternalEvent feuerloescher, BindingList<Feuerloescher> _feuerloescherList, BindingList<Raum> _raeume)
         {
             this.ex_updateEvent = update;
             this.ex_feuerloescherEvent = feuerloescher;
+            this.feuerloescherList = _feuerloescherList;
             InitializeComponent();
             this.raeume = _raeume;
             fuelleListe();

@@ -87,6 +87,8 @@ namespace AddIn
             PushButton myButton = (PushButton)ribbonBrandschutzPanel.AddItem(new PushButtonData("RevitApp", "Brandschutz Tools",
                 AddInPath, "AddIn.StartApp"));
 
+            myButton.LargeImage = new BitmapImage(new Uri(Path.Combine(ButtonIconsFolder, "Feuerloescher.jpg"), UriKind.Absolute));
+
             //Beschreibung, die erscheint, wenn man über den Button hovert.
             myButton.ToolTip = "Öffnet ein Tool, in dem erforderliche Feuerlöscher bestimmt werden können.";
         }
@@ -113,13 +115,13 @@ namespace AddIn
             if (revitAppForm == null || revitAppForm.IsDisposed)
             {
                 RaumdatenUpdater updateHandler = new RaumdatenUpdater();
-                //FeuerloescherPlatzierer feuerloescherHandler = new FeuerloescherPlatzierer();
+                FeuerloescherPlatzierer feuerloescherHandler = new FeuerloescherPlatzierer();
 
                 ExternalEvent updateEvent = ExternalEvent.Create(updateHandler);
-                //ExternalEvent feuerloescherEvent = ExternalEvent.Create(feuerloescherHandler);
+                ExternalEvent feuerloescherEvent = ExternalEvent.Create(feuerloescherHandler);
 
-                //revitAppForm = new FormMain(updateEvent, feuerloescherEvent, revitRaeume);
-                revitAppForm = new FormMain(updateEvent, feuerlocherList, revitRaeume);
+                revitAppForm = new FormMain(updateEvent, feuerloescherEvent, feuerlocherList, revitRaeume);
+                //revitAppForm = new FormMain(updateEvent, feuerlocherList, revitRaeume);
                 revitAppForm.Show();
             }
         }

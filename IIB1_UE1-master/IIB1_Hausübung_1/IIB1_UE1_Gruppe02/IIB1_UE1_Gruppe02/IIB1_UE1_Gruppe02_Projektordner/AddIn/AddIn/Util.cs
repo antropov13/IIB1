@@ -85,8 +85,7 @@ namespace AddIn
                 BindingList<Feuerloescher> feuerloescherListe = new BindingList<Feuerloescher>();
                 foreach (FamilyInstance fi in revitFeuerloescherListe)
                 {
-                    //double fensterFlaeche = groessteFensterflaeche(fi); public Feuerloescher(string _bezeichnung, int _loescheinheit, double _preis);
-                    //Fenster fenster = new Fenster(Util.squarefeetToQuadratmeter(fensterFlaeche), fi.Name, fi.Symbol.ToString());
+
                     int leInt = 0;
                     int preisInt = 0;
 
@@ -108,9 +107,7 @@ namespace AddIn
                     }
 
                     Feuerloescher feuerloescher = new Feuerloescher(fi.Name, leInt, preisInt);
-                    //feuerloescher.Anzahl = 1;
 
-                    //feuerloescherListe.Add(feuerloescher);
                     bool flag = false;
                     foreach(Feuerloescher f in feuerloescherListe)
                     {
@@ -186,74 +183,10 @@ namespace AddIn
 
                 if (fi.Room != null && fi.Room.Number.Equals(room.Number)) {
 
-                    foreach(Parameter p in s.Parameters)
-                    {
-                        if (p.Definition.Name.Equals("Beschreibung"))
-                        {
-                            //TaskDialog.Show("Par:", p.Definition.Name);
-                            string beschreibung = p.AsString();
-                            //TaskDialog.Show("Beschreibung:", preis);
-                        }
-                        if (p.Definition.Name.Equals("Kosten"))
-                        {
-                           // TaskDialog.Show("Par:", p.Definition.Name);
-                            string preis = p.AsValueString();
-                            //TaskDialog.Show("Kosten:", preis);
-                        }
-
-                        if (p.Definition.Name.Equals("Loescheinheit"))
-                        {
-                            //TaskDialog.Show("Par:", p.Definition.Name);
-                            string LE = p.AsValueString();
-                            //TaskDialog.Show("Loescheinheit:", preis);
-                        }
-                    }
                     alleRaumFeuerloescher.Add(fi);
                 }
             }
             return alleRaumFeuerloescher;
-        }
-
-        public void GetFamilyTypesInFamily(Document familyDoc)
-        {
-            if (familyDoc.IsFamilyDocument == true)
-            {
-                FamilyManager familyManager = familyDoc.FamilyManager;
-
-                // get types in family
-                string types = "Family Types: ";
-                FamilyTypeSet familyTypes = familyManager.Types;
-                FamilyTypeSetIterator familyTypesItor = familyTypes.ForwardIterator();
-                familyTypesItor.Reset();
-                while (familyTypesItor.MoveNext())
-                {
-                    FamilyType familyType = familyTypesItor.Current as FamilyType;
-                    types += "\n" + familyType.Name;
-                }
-                //MessageBox.Show(types, "Revit");
-            }
-        }
-
-        private static double preisFeuerloscher(FamilyInstance feuerloescher)
-        {
-            double re = 0;
-            Autodesk.Revit.DB.Options opt = new Options();
-            //GeometryElement geomFenster = ;
-            
-            /*foreach (GeometryObject geomObj in geomFenster)
-            {
-                Solid geomSolid = geomObj as Solid;
-                if (geomSolid != null)
-                {
-                    foreach (Face geomFace in geomSolid.Faces)
-                    {
-                        if (geomFace.Area > re)
-                            re = geomFace.Area;
-                    }
-                }
-            }
-            */
-            return re;
         }
 
         public static double squarefeetToQuadratmeter(double squarefeet)
@@ -315,12 +248,12 @@ namespace AddIn
         public static void platziereFeuerloescher(BindingList<Raum> raeume)
         {
             foreach (Raum r in raeume)
-                // if (r.grenzwertUnterschritten())
                 platziereFeuerloescherInRaum(r);
         }
 
         private static void platziereFeuerloescherInRaum(Raum r)
         {
+            //TaskDialog.Show("ID, Name", r.Bezeichung);
             Room rr = doc.GetElement(r.RevitId) as Room;
             XYZ locR = ((LocationPoint)rr.Location).Point;
             if (null != locR)
@@ -330,13 +263,19 @@ namespace AddIn
                     if (trans.Start("PlaceFamily") == TransactionStatus.Started)
                     {
                         FamilyInstance fi = doc.Create.NewFamilyInstance(locR,
-                            GetFamilySymbolByName(BuiltInCategory.OST_SpecialityEquipment, "5A/21B")
+                            GetFamilySymbolByName(BuiltInCategory.OST_SpecialityEquipment, "8A/34B")
                             , StructuralType.NonStructural);
                         trans.Commit();
+                        
+
+
+                        //if (TransactionStatus.Committed != trans.Commit())
+                        //{
+                        //    TaskDialog.Show("Failure", "Transaction could not be committed");
+                        //}
                     }
                 }
             }
-            //5A/21B
         }
 
         private static FamilySymbol GetFamilySymbolByName(BuiltInCategory bic, string name)
