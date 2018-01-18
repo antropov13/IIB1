@@ -45,6 +45,7 @@ namespace AddIn
 
         public static Raum parseRaum(Room room)
         {
+
             List<FamilyInstance> revitFeuerloescherListe = findeAlleRaumFeuerloescher(room);
             BindingList<Feuerloescher> feuerloescherListe = parseFeuerloescher(revitFeuerloescherListe);
             //BindingList<Feuerloescher> feuerloescherListe = new BindingList<Feuerloescher>();
@@ -93,7 +94,8 @@ namespace AddIn
 
                     FamilySymbol s = GetFamilySymbolByName(BuiltInCategory.OST_SpecialityEquipment, fi.Name);
 
-                    foreach (Parameter p in s.Parameters){
+                    foreach (Parameter p in s.Parameters)
+                    {
                         if (p.Definition.Name.Equals("Kosten"))
                         {
                             string preis = p.AsValueString();
@@ -111,7 +113,7 @@ namespace AddIn
                     Feuerloescher feuerloescher = new Feuerloescher(fi.Name, leInt, preisInt);
 
                     bool flag = false;
-                    foreach(Feuerloescher f in feuerloescherListe)
+                    foreach (Feuerloescher f in feuerloescherListe)
                     {
                         if (f.Bezeichnung.Equals(feuerloescher.Bezeichnung))
                         {
@@ -138,6 +140,7 @@ namespace AddIn
             ElementCategoryFilter filter = new ElementCategoryFilter(BuiltInCategory.OST_SpecialityEquipment);
             FilteredElementCollector collector = new FilteredElementCollector(doc);
             alleFeuerloescher = collector.WherePasses(filter).WhereElementIsNotElementType().ToElements();
+
             listFeuerloescherSuebern();
         }
 
@@ -156,7 +159,7 @@ namespace AddIn
                     if (p.Definition.Name.Equals("Beschreibung"))
                     {
                         string beschreibung = p.AsString();
-                        if (beschreibung=="Feuerloescher")
+                        if (beschreibung == "Feuerloescher")
                         {
                             alleFeuerloescherBuffer.Add(e);
                         }
@@ -165,8 +168,6 @@ namespace AddIn
             }
             alleFeuerloescher.Clear();
             alleFeuerloescher = alleFeuerloescherBuffer;
-            //count = alleFeuerloescher.Count;
-            //TaskDialog.Show("Count:", count.ToString());
         }
 
         /// <summary>
@@ -183,7 +184,8 @@ namespace AddIn
                 FamilyInstance fi = (FamilyInstance)e;
                 FamilySymbol s = GetFamilySymbolByName(BuiltInCategory.OST_SpecialityEquipment, fi.Name);
 
-                if (fi.Room != null && fi.Room.Number.Equals(room.Number)) {
+                if (fi.Room != null && fi.Room.Number.Equals(room.Number))
+                {
 
                     alleRaumFeuerloescher.Add(fi);
                 }
@@ -257,7 +259,7 @@ namespace AddIn
             f.Anzahl = 1;
             foreach (Raum r in raeume)
             {
-                r.feueloescherHinzu(f);
+                //r.feueloescherHinzu(f);
                 platziereFeuerloescherInRaum(r);
             }
         }
@@ -266,9 +268,10 @@ namespace AddIn
         private static void platziereFeuerloescherInRaum(Raum r)
         {
             //TaskDialog.Show("ID, Name", r.Bezeichung);
-            Room rr = (Room)doc.GetElement(r.RevitId);
-            //XYZ locR = ((LocationPoint)rr.Location).Point;
-            XYZ locR = new XYZ(12, 13, 0 + 10); ;
+            Room rr = doc.GetElement(r.RevitId) as Room;
+            XYZ locR = ((LocationPoint)rr.Location).Point;
+            
+            //XYZ locR = new XYZ(0, 0, 0); ;
             if (null != locR)
             {
                 using (Transaction trans = new Transaction(doc))
@@ -276,10 +279,11 @@ namespace AddIn
                     if (trans.Start("PlaceFamily") == TransactionStatus.Started)
                     {
                         FamilyInstance fi = doc.Create.NewFamilyInstance(locR,
-                            GetFamilySymbolByName(BuiltInCategory.OST_SpecialityEquipment, "8A/34B")
+                            GetFamilySymbolByName(BuiltInCategory.OST_SpecialityEquipment, "5A/21B")
                             , StructuralType.NonStructural);
+                        //FamilyInstance fii = doc.Create.New
                         trans.Commit();
-                        Debug.WriteLine("Raum id:" + rr.UniqueId + " - " +r.RevitId);
+                        Debug.WriteLine("Raum id:" + rr.UniqueId + " - " + r.RevitId);
                         Debug.WriteLine("Raum Name:" + rr.Name + " - " + r.Bezeichung);
                         Debug.WriteLine("locR:" + locR);
                         Debug.WriteLine("");
@@ -293,7 +297,41 @@ namespace AddIn
             return new FilteredElementCollector(doc).OfCategory(bic).OfClass(typeof(FamilySymbol))
                 .FirstOrDefault<Element>(e => e.Name.Equals(name)) as FamilySymbol;
         }
-        #endregion
 
+
+        public static void loadFamilyExample(Document doc)
+        {
+            try
+            {
+                Family family = null;
+                string fileName = @"C:\Users\igora\Desktop\IIB1_UE1-master\IIB1_UE1-master\IIB1_Hausübung_1\Feuerloescher-Familie.rfa";
+                using (Transaction t = new Transaction(doc))
+                {
+                    if (t.Start("LoadFamily") == TransactionStatus.Started)
+                    {
+                        // try to load family
+                        if (!doc.LoadFamily(fileName, out family))
+                        {
+                            throw new Exception("Unable to load " + fileName);
+                        }
+                        t.Commit();
+
+                    }
+                }
+
+                string symbolNames = "";
+                foreach (ElementId symbolId in family.GetFamilySymbolIds())
+                {
+                    symbolNames += family.Name + " - " + ((FamilySymbol)
+                    family.Document.GetElement(symbolId)).Name + "\n";
+                }
+                TaskDialog.Show("Loaded", symbolNames);
+            }
+            catch
+            {
+                
+            }
+        }
+        #endregion
     }
 }
