@@ -264,6 +264,13 @@ namespace AddIn
             }
         }
 
+        public static Family getFamily(String FamilyName)
+        {
+            FilteredElementCollector a = new FilteredElementCollector(doc).OfClass(typeof(Family));
+            Family family = a.FirstOrDefault<Element>(e => e.Name.Equals(FamilyName)) as Family;
+            return family;
+        }
+
 
         private static void platziereFeuerloescherInRaum(Raum r)
         {
@@ -299,7 +306,7 @@ namespace AddIn
         }
 
 
-        public static void loadFamilyExample(Document doc)
+        public static Family loadFamilyExample(Document doc)
         {
             try
             {
@@ -322,15 +329,18 @@ namespace AddIn
                 string symbolNames = "";
                 foreach (ElementId symbolId in family.GetFamilySymbolIds())
                 {
-                    symbolNames += family.Name + " - " + ((FamilySymbol)
-                    family.Document.GetElement(symbolId)).Name + "\n";
+                    symbolNames += family.Name + " - " + ((FamilySymbol)family.Document.GetElement(symbolId)).Name + "\n";
                 }
                 TaskDialog.Show("Loaded", symbolNames);
+                return family;
             }
             catch
             {
-                
+                Family family = null;
+                return family;
             }
+            
+
         }
         #endregion
     }
