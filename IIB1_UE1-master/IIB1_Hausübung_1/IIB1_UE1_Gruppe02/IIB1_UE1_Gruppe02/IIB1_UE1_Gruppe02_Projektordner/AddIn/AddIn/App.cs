@@ -92,7 +92,6 @@ namespace AddIn
             myButton.ToolTip = "Öffnet ein Tool, in dem erforderliche Feuerlöscher bestimmt werden können.";
         }
 
-        private static BindingList<Feuerloescher> feuerlocherList = new BindingList<Feuerloescher>();
 
         public void ShowForm(BindingList<Raum> revitRaeume, BindingList<Feuerloescher> feuerlocherList)
         {

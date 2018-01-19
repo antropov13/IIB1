@@ -26,8 +26,6 @@ namespace AddIn
             UIDocument mdoc = uiApp.ActiveUIDocument;
             Util.Doc = mdoc.Document;
 
-            //Util.loadFamilyExample(mdoc.Document);
-
             List<Element> Rooms = new FilteredElementCollector(mdoc.Document).OfClass(typeof(SpatialElement)).
                     WhereElementIsNotElementType().Where(room => room.GetType() == typeof(Room)).ToList();
             Util.holeAlleFeuerloescher();

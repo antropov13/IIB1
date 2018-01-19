@@ -252,15 +252,34 @@ namespace AddIn
             else return "";
         }
 
+        public static bool mengeFeuerloscher(Raum r)
+        {
+            return (r.FeuerloescherList.Count <= 29);
+        }
+
+        public static bool getFeuerloscher(Raum r, Feuerloescher f)
+        {
+            foreach(Feuerloescher fr in r.FeuerloescherList)
+            {
+                if (fr.Bezeichnung.Equals(f.Bezeichnung)) return true;
+            }
+            return false;
+        }
+
 
         public static void platziereFeuerloescher(BindingList<Raum> raeume)
         {
-            Feuerloescher f = new Feuerloescher("5A/21B", 1, 20);
+            Feuerloescher f = new Feuerloescher("27A/144B", 9, 140);
             f.Anzahl = 1;
             foreach (Raum r in raeume)
             {
-                //r.feueloescherHinzu(f);
-                platziereFeuerloescherInRaum(r);
+                if (mengeFeuerloscher(r)) {
+                    if (getFeuerloscher(r,f))
+                        r.feueloescherAnzahlHinzu(f);
+                    else
+                        r.feueloescherHinzu(f);
+                    platziereFeuerloescherInRaum(r);
+                }
             }
         }
 
@@ -274,11 +293,9 @@ namespace AddIn
 
         private static void platziereFeuerloescherInRaum(Raum r)
         {
-            //TaskDialog.Show("ID, Name", r.Bezeichung);
             Room rr = doc.GetElement(r.RevitId) as Room;
             XYZ locR = ((LocationPoint)rr.Location).Point;
             
-            //XYZ locR = new XYZ(0, 0, 0); ;
             if (null != locR)
             {
                 using (Transaction trans = new Transaction(doc))
@@ -286,14 +303,9 @@ namespace AddIn
                     if (trans.Start("PlaceFamily") == TransactionStatus.Started)
                     {
                         FamilyInstance fi = doc.Create.NewFamilyInstance(locR,
-                            GetFamilySymbolByName(BuiltInCategory.OST_SpecialityEquipment, "5A/21B")
+                            GetFamilySymbolByName(BuiltInCategory.OST_SpecialityEquipment, "27A/144B")
                             , StructuralType.NonStructural);
-                        //FamilyInstance fii = doc.Create.New
                         trans.Commit();
-                        Debug.WriteLine("Raum id:" + rr.UniqueId + " - " + r.RevitId);
-                        Debug.WriteLine("Raum Name:" + rr.Name + " - " + r.Bezeichung);
-                        Debug.WriteLine("locR:" + locR);
-                        Debug.WriteLine("");
                     }
                 }
             }

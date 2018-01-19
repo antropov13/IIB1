@@ -306,6 +306,7 @@ namespace GUI
         private void buttonAktualisieren_Click(object sender, EventArgs e)
         {
             listBoxUpdate();
+            ex_updateEvent.Raise();
         }
     }
 }
