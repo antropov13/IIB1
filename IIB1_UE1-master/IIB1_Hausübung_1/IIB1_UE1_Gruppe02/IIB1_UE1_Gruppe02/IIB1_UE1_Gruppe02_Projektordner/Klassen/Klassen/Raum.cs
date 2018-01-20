@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace Klassen
@@ -96,6 +97,17 @@ namespace Klassen
         public void feueloescherHinzu(Feuerloescher f)
         {
             feuerloescherList.Add(f);
+        }
+
+        public void feueloescherAnzahlHinzu(Feuerloescher f)
+        {
+            foreach (Feuerloescher ff in feuerloescherList)
+            {
+                if (ff.Bezeichnung.Equals(f.Bezeichnung)) {
+                    ff.Anzahl ++;
+                    break;
+                }
+            }
         }
 
         public void entferneFeuerloescher(Feuerloescher f)

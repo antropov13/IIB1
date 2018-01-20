@@ -150,10 +150,8 @@ namespace GUI
 
         }
 
-        private void buttonAenderungsSpeichern_Click(object sender, EventArgs e)
+        public void aenderungSpeichern()
         {
-            //Speichern Änderung des Raum
-            
             String typ = comboBoxRaumNutzungsart.Text;
             raum.TypRaume = typ;
             switch (typ)
@@ -186,7 +184,12 @@ namespace GUI
             raum.Materialien.BrandbareMasse = Convert.ToDouble(textBoxBrandbareMasse.Text);
             raum.Brandlast = Convert.ToDouble(textBoxBrandlastRaum.Text);
             ((FormMain)Owner).raumAenderung(raum);
+        }
 
+        private void buttonAenderungsSpeichern_Click(object sender, EventArgs e)
+        {
+            //Speichern Änderung des Raum
+            aenderungSpeichern();
         }
 
         private void textBoxRaumFlaeche_TextChanged(object sender, EventArgs e)

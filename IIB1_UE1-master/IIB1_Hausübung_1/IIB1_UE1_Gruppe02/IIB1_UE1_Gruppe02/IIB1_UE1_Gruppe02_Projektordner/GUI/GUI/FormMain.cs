@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Autodesk.Revit.UI;
+using System.Diagnostics;
 
 namespace GUI
 {
@@ -24,10 +25,11 @@ namespace GUI
 
         public BindingList<Raum> Raeume { get { return raeume; } }
 
-        public FormMain(ExternalEvent update, ExternalEvent feuerloescher, BindingList<Raum> _raeume)
+        public FormMain(ExternalEvent update, ExternalEvent feuerloescher, BindingList<Feuerloescher> _feuerloescherList, BindingList<Raum> _raeume)
         {
             this.ex_updateEvent = update;
             this.ex_feuerloescherEvent = feuerloescher;
+            this.feuerloescherList = _feuerloescherList;
             InitializeComponent();
             this.raeume = _raeume;
             fuelleListe();
@@ -64,7 +66,8 @@ namespace GUI
                     comboBoxTypRaum.Items.Add(r.TypRaume);
             }
 
-            comboBoxTypRaum.SelectedIndex = 0;    
+            comboBoxTypRaum.SelectedIndex = 0;
+            listBoxUpdate();
             
         }
 
@@ -116,9 +119,9 @@ namespace GUI
             }
             catch { }
         }
-        private void listBoxUpdate()
+        public void listBoxUpdate()
         {
-            //Aktulisierung ListBox mit deb Räume
+            //Aktulisierung ListBox mit der Räume
             listBoxRaum.Items.Clear();
             listBoxRaum.DrawMode = DrawMode.OwnerDrawFixed;
             listBoxRaum.DrawItem += listBoxRaum_DrawItem;
@@ -297,6 +300,13 @@ namespace GUI
         private void buttonFeuerloescherPlazieren_Click(object sender, EventArgs e)
         {
             ex_feuerloescherEvent.Raise();
+
+        }
+
+        private void buttonAktualisieren_Click(object sender, EventArgs e)
+        {
+            listBoxUpdate();
+            ex_updateEvent.Raise();
         }
     }
 }

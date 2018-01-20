@@ -10,6 +10,10 @@ using System.Threading.Tasks;
 using Klassen;
 using GUI;
 using Autodesk.Revit.DB.Structure;
+using System.Text.RegularExpressions;
+using System.Diagnostics;
+using System.Windows.Forms;
+using System.IO;
 
 namespace AddIn
 {
@@ -28,6 +32,7 @@ namespace AddIn
                 doc = value;
             }
         }
+
         #endregion
 
         #region Methoden
@@ -42,6 +47,7 @@ namespace AddIn
 
         public static Raum parseRaum(Room room)
         {
+
             List<FamilyInstance> revitFeuerloescherListe = findeAlleRaumFeuerloescher(room);
             BindingList<Feuerloescher> feuerloescherListe = parseFeuerloescher(revitFeuerloescherListe);
             //BindingList<Feuerloescher> feuerloescherListe = new BindingList<Feuerloescher>();
@@ -84,12 +90,46 @@ namespace AddIn
                 BindingList<Feuerloescher> feuerloescherListe = new BindingList<Feuerloescher>();
                 foreach (FamilyInstance fi in revitFeuerloescherListe)
                 {
-                    //double fensterFlaeche = groessteFensterflaeche(fi); public Feuerloescher(string _bezeichnung, int _loescheinheit, double _preis);
-                    //Fenster fenster = new Fenster(Util.squarefeetToQuadratmeter(fensterFlaeche), fi.Name, fi.Symbol.ToString());
-                    int le = 0;
-                    int pr = 0;
-                    Feuerloescher feuerloescher = new Feuerloescher(fi.Name, le, pr);
-                    feuerloescherListe.Add(feuerloescher);
+
+                    int leInt = 0;
+                    int preisInt = 0;
+
+                    FamilySymbol s = GetFamilySymbolByName(BuiltInCategory.OST_SpecialityEquipment, fi.Name);
+
+                    foreach (Parameter p in s.Parameters)
+                    {
+                        if (p.Definition.Name.Equals("Kosten"))
+                        {
+                            string preis = p.AsValueString();
+                            preisInt = Convert.ToInt32(Regex.Replace(preis, @"[^\d]+", ""));
+
+                        }
+
+                        else if (p.Definition.Name.Equals("Loescheinheit"))
+                        {
+                            string LE = p.AsValueString();
+                            leInt = Convert.ToInt32(LE);
+                        }
+                    }
+
+                    Feuerloescher feuerloescher = new Feuerloescher(fi.Name, leInt, preisInt);
+
+                    bool flag = false;
+                    foreach (Feuerloescher f in feuerloescherListe)
+                    {
+                        if (f.Bezeichnung.Equals(feuerloescher.Bezeichnung))
+                        {
+                            f.Anzahl += 1;
+                            flag = true;
+                            break;
+                        }
+                    }
+                    if (!flag)
+                    {
+                        feuerloescher.Anzahl = 1;
+                        feuerloescherListe.Add(feuerloescher);
+                    }
+
                 }
                 return feuerloescherListe;
             }
@@ -102,6 +142,34 @@ namespace AddIn
             ElementCategoryFilter filter = new ElementCategoryFilter(BuiltInCategory.OST_SpecialityEquipment);
             FilteredElementCollector collector = new FilteredElementCollector(doc);
             alleFeuerloescher = collector.WherePasses(filter).WhereElementIsNotElementType().ToElements();
+
+            listFeuerloescherSuebern();
+        }
+
+        public static void listFeuerloescherSuebern()
+        {
+            IList<Element> alleFeuerloescherBuffer = new List<Element>();
+            //int count = alleFeuerloescher.Count;
+            //TaskDialog.Show("Count:", count.ToString());
+            foreach (Element e in alleFeuerloescher)
+            {
+                FamilyInstance fi = (FamilyInstance)e;
+                FamilySymbol s = GetFamilySymbolByName(BuiltInCategory.OST_SpecialityEquipment, fi.Name);
+
+                foreach (Parameter p in s.Parameters)
+                {
+                    if (p.Definition.Name.Equals("Beschreibung"))
+                    {
+                        string beschreibung = p.AsString();
+                        if (beschreibung == "Feuerloescher")
+                        {
+                            alleFeuerloescherBuffer.Add(e);
+                        }
+                    }
+                }
+            }
+            alleFeuerloescher.Clear();
+            alleFeuerloescher = alleFeuerloescherBuffer;
         }
 
         /// <summary>
@@ -116,12 +184,11 @@ namespace AddIn
             foreach (Element e in alleFeuerloescher)
             {
                 FamilyInstance fi = (FamilyInstance)e;
-                //if ((fi.ToRoom != null && fi.ToRoom.Number.Equals(room.Number)) || (fi.FromRoom != null && fi.FromRoom.Number.Equals(room.Number)))
-                //if (fi.GetParameters("Preis").Equals(10))
-                //{
-                if (fi.Name.Equals("5A/21B") && fi.Room != null && fi.Room.Number.Equals(room.Number)) { 
+                FamilySymbol s = GetFamilySymbolByName(BuiltInCategory.OST_SpecialityEquipment, fi.Name);
 
-                    TaskDialog.Show("FL", fi.Name);
+                if (fi.Room != null && fi.Room.Number.Equals(room.Number))
+                {
+
                     alleRaumFeuerloescher.Add(fi);
                 }
             }
@@ -137,7 +204,11 @@ namespace AddIn
         public static void updateRaumDaten(BindingList<Raum> raeume)
         {
             aendereBekannteProperties(raeume);
-            //aendereNeueProperties(raeume);
+            aendereNeueProperties(raeume);
+        }
+
+        private static void aendereNeueProperties(BindingList<Raum> raeume)
+        {
         }
 
         private static void aendereBekannteProperties(BindingList<Raum> raeume)
@@ -183,18 +254,50 @@ namespace AddIn
             else return "";
         }
 
+        public static bool mengeFeuerloscher(Raum r)
+        {
+            return (r.FeuerloescherList.Count <= 29);
+        }
+
+        public static bool getFeuerloscher(Raum r, Feuerloescher f)
+        {
+            foreach(Feuerloescher fr in r.FeuerloescherList)
+            {
+                if (fr.Bezeichnung.Equals(f.Bezeichnung)) return true;
+            }
+            return false;
+        }
+
 
         public static void platziereFeuerloescher(BindingList<Raum> raeume)
         {
+            Feuerloescher f = new Feuerloescher("27A/144B", 9, 140);
+            f.Anzahl = 1;
             foreach (Raum r in raeume)
-                // if (r.grenzwertUnterschritten())
-                platziereFeuerloescherInRaum(r);
+            {
+                if (mengeFeuerloscher(r)) {
+                    if (getFeuerloscher(r,f))
+                        r.feueloescherAnzahlHinzu(f);
+                    else
+                        r.feueloescherHinzu(f);
+                    platziereFeuerloescherInRaum(r);
+                }
+            }
         }
+
+        public static Family getFamily(String FamilyName)
+        {
+            FilteredElementCollector a = new FilteredElementCollector(doc).OfClass(typeof(Family));
+            Family family = a.FirstOrDefault<Element>(e => e.Name.Equals(FamilyName)) as Family;
+            return family;
+        }
+
 
         private static void platziereFeuerloescherInRaum(Raum r)
         {
             Room rr = doc.GetElement(r.RevitId) as Room;
             XYZ locR = ((LocationPoint)rr.Location).Point;
+            
             if (null != locR)
             {
                 using (Transaction trans = new Transaction(doc))
@@ -202,13 +305,12 @@ namespace AddIn
                     if (trans.Start("PlaceFamily") == TransactionStatus.Started)
                     {
                         FamilyInstance fi = doc.Create.NewFamilyInstance(locR,
-                            GetFamilySymbolByName(BuiltInCategory.OST_SpecialityEquipment, "5A/21B")
+                            GetFamilySymbolByName(BuiltInCategory.OST_SpecialityEquipment, "27A/144B")
                             , StructuralType.NonStructural);
                         trans.Commit();
                     }
                 }
             }
-            //5A/21B
         }
 
         private static FamilySymbol GetFamilySymbolByName(BuiltInCategory bic, string name)
@@ -216,7 +318,61 @@ namespace AddIn
             return new FilteredElementCollector(doc).OfCategory(bic).OfClass(typeof(FamilySymbol))
                 .FirstOrDefault<Element>(e => e.Name.Equals(name)) as FamilySymbol;
         }
-        #endregion
 
+
+        public static Family loadFamilyExample(Document doc, String path, String fileFamily)
+        {
+            try
+            {
+                Family family = null;
+                string file = path + fileFamily;
+                string fileName = @file;
+
+                Debug.WriteLine("FileFamily: ", fileName);
+
+                if (!File.Exists(fileName))
+                {
+                    string fehler = "Die Familie wurde nicht gefunden.\nFeuerlöscher-Familie soll sich neben dem Projekt befinden.\nWählen Sie bitte die Familie in Dialogfeld aus.";
+                    TaskDialog.Show("Familie ", fehler);
+                    OpenFileDialog ofd = new OpenFileDialog();
+                    if (ofd.ShowDialog() == DialogResult.OK)
+                    {
+                        //FileStream fs = new FileStream(ofd.FileName, FileMode.Open);
+                        Debug.WriteLine("Loadet Family: " + ofd.FileName);
+                    }
+                    fileName = ofd.FileName;
+                }
+
+                using (Transaction t = new Transaction(doc))
+                {
+                    if (t.Start("LoadFamily") == TransactionStatus.Started)
+                    {
+                        // try to load family
+                        if (!doc.LoadFamily(fileName, out family))
+                        {
+                            throw new Exception("Unable to load " + fileName);
+                        }
+                        t.Commit();
+
+                    }
+                }
+
+                string symbolNames = family.Name+"\n";
+                foreach (ElementId symbolId in family.GetFamilySymbolIds())
+                {
+                    symbolNames += ((FamilySymbol)family.Document.GetElement(symbolId)).Name + "\n";
+                }
+                TaskDialog.Show("Loaded", symbolNames);
+                return family;
+            }
+            catch
+            {
+                Family family = null;
+                return family;
+            }
+            
+
+        }
+        #endregion
     }
 }
