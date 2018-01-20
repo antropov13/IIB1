@@ -1,4 +1,4 @@
-# Prerequisites
+﻿# Prerequisites
 *.d
 
 # Object files
@@ -23,13 +23,12 @@
 *.lo
 
 # Shared objects (inc. Windows DLLs)
-*.dll
+
 *.so
 *.so.*
 *.dylib
 
 # Executables
-*.exe
 *.out
 *.app
 *.i*86
@@ -56,14 +55,4 @@ dkms.conf
 *.ide-wal
 IIB1_UE1-master/IIB1_Hausübung_1/IIB1_UE1_Gruppe02/IIB1_UE1_Gruppe02/IIB1_UE1_Gruppe02_Projektordner/GUI/.vs/IIB1_UE1_Gruppe02_GUI/v15/.suo
 *.ide
-*.ide-shm
-IIB1_UE1-master/IIB1_Hausübung_1/IIB1_UE1_Gruppe02/IIB1_UE1_Gruppe02/IIB1_UE1_Gruppe02_Projektordner/GUI/.vs/IIB1_UE1_Gruppe02_GUI/v15/Server/sqlite3/storage.ide-wal
-IIB1_UE1-master/IIB1_Hausübung_1/IIB1_UE1_Gruppe02/IIB1_UE1_Gruppe02/IIB1_UE1_Gruppe02_Projektordner/GUI/.vs/IIB1_UE1_Gruppe02_GUI/v15/Server/sqlite3/storage.ide-shm
-IIB1_UE1-master/IIB1_Hausübung_1/IIB1_UE1_Gruppe02/IIB1_UE1_Gruppe02/IIB1_UE1_Gruppe02_Projektordner/GUI/.vs/IIB1_UE1_Gruppe02_GUI/v15/Server/sqlite3/storage.ide
-IIB1_UE1-master/IIB1_Hausübung_1/IIB1_UE1_Gruppe02/IIB1_UE1_Gruppe02/IIB1_UE1_Gruppe02_Projektordner/GUI/.vs/IIB1_UE1_Gruppe02_GUI/v15/.suo
-IIB1_UE1-master/IIB1_Hausübung_1/DFI2017_HÜ1.0001.rvt
-IIB1_UE1-master/IIB1_Hausübung_1/DFI2017_HÜ1.0001.rvt
-IIB1_UE1-master/IIB1_Hausübung_1/DFI2017_HÜ1.0002.rvt
-IIB1_UE1-master/IIB1_Hausübung_1/DFI2017_HÜ1.0003.rvt
-IIB1_UE1-master/IIB1_Hausübung_1/DFI2017_HÜ1.0001.rvt
-IIB1_UE1-master/IIB1_Hausübung_1/DFI2017_HÜ1.0001.rvt
+*
