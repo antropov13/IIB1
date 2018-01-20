@@ -276,11 +276,11 @@ namespace AddIn
             foreach (Raum r in raeume)
             {
                 if (mengeFeuerloscher(r)) {
+                    platziereFeuerloescherInRaum(r);
                     if (getFeuerloscher(r,f))
                         r.feueloescherAnzahlHinzu(f);
                     else
                         r.feueloescherHinzu(f);
-                    platziereFeuerloescherInRaum(r);
                 }
             }
         }
@@ -306,6 +306,7 @@ namespace AddIn
                     {
                         FamilyInstance fi = doc.Create.NewFamilyInstance(locR,
                             GetFamilySymbolByName(BuiltInCategory.OST_SpecialityEquipment, "27A/144B")
+                            
                             , StructuralType.NonStructural);
                         trans.Commit();
                     }
@@ -315,8 +316,10 @@ namespace AddIn
 
         private static FamilySymbol GetFamilySymbolByName(BuiltInCategory bic, string name)
         {
+
             return new FilteredElementCollector(doc).OfCategory(bic).OfClass(typeof(FamilySymbol))
                 .FirstOrDefault<Element>(e => e.Name.Equals(name)) as FamilySymbol;
+
         }
 
 

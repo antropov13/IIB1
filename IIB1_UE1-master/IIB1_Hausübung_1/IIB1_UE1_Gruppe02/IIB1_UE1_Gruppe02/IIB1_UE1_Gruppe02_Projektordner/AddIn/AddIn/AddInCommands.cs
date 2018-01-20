@@ -70,6 +70,8 @@ namespace AddIn
                     meineRaeume.Add(r);
             }
 
+            
+
             App.thisApp.ShowForm(meineRaeume, feuerlocherList);
             return Result.Succeeded;
         }
