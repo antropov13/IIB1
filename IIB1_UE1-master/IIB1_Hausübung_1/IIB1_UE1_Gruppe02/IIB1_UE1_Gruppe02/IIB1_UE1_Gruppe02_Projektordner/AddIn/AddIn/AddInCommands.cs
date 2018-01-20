@@ -10,6 +10,10 @@ using System.ComponentModel;
 using Klassen;
 using GUI;
 using System.Text.RegularExpressions;
+using System.Diagnostics;
+using System.Windows.Forms;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace AddIn
 {
@@ -26,16 +30,38 @@ namespace AddIn
             UIDocument mdoc = uiApp.ActiveUIDocument;
             Util.Doc = mdoc.Document;
 
+            string path = mdoc.Document.PathName;
+            string namedoc = mdoc.Document.Title;
+            string pathDocument = path.Replace(namedoc, "");
+            string fileFamily = "Feuerloescher-Familie.rfa";
+            string nameFamily = "Feuerloescher-Familie";
+
+            Debug.WriteLine("Document: " + path + ", " + namedoc);
+
             List<Element> Rooms = new FilteredElementCollector(mdoc.Document).OfClass(typeof(SpatialElement)).
                     WhereElementIsNotElementType().Where(room => room.GetType() == typeof(Room)).ToList();
             Util.holeAlleFeuerloescher();
             BindingList<Raum> raeume = new BindingList<Raum>();
             BindingList<Feuerloescher> feuerlocherList = new BindingList<Feuerloescher>();
 
-            Family family =  Util.getFamily("Feuerloescher-Familie");
-            if (family==null) family = Util.loadFamilyExample(mdoc.Document);
-            
+            Family family =  Util.getFamily(nameFamily);
+            if (family==null) family = Util.loadFamilyExample(mdoc.Document, pathDocument , fileFamily);
+
+            if (family == null)
+            {
+                string fehler = "Die Familie wurde nicht gefunden.\n";
+                TaskDialog.Show("Familie ", fehler);
+                return Result.Failed;
+            }
+
             feuerlocherList = parseFamilyFeuerloescher(family);
+
+            if (feuerlocherList == null)
+            {
+                string fehler = "Die falsche Familie wurde geladen.\n";
+                TaskDialog.Show("Familie ", fehler);
+                return Result.Failed;
+            }
 
             foreach (Element e in Rooms)
             {
@@ -50,26 +76,31 @@ namespace AddIn
 
         public static BindingList<Feuerloescher> parseFamilyFeuerloescher(Family family)
         {
-            BindingList<Feuerloescher> feuerlocherList = new BindingList<Feuerloescher>();
-
-            string fName = "";
-            int fLE = 0;
-            int fPreis = 0;
-            string preis = "";
-            foreach (ElementId symbolId in family.GetFamilySymbolIds())
+            try
             {
-                //symbolNames += family.Name + " - " + ((FamilySymbol)family.Document.GetElement(symbolId)).Name + " ";
-                //symbolNames += ((FamilySymbol)family.Document.GetElement(symbolId)).GetParameters("Loescheinheit")[0].AsValueString() + "\n";
-                fName = ((FamilySymbol)family.Document.GetElement(symbolId)).Name;
-                fLE = Convert.ToInt32(((FamilySymbol)family.Document.GetElement(symbolId)).GetParameters("Loescheinheit")[0].AsValueString());
-                preis = ((FamilySymbol)family.Document.GetElement(symbolId)).GetParameters("Kosten")[0].AsValueString();
-                fPreis = Convert.ToInt32(Regex.Replace(preis, @"[^\d]+", ""));
+                BindingList<Feuerloescher> feuerlocherList = new BindingList<Feuerloescher>();
 
-                Feuerloescher f = new Feuerloescher(fName, fLE, fPreis);
-                feuerlocherList.Add(f);
+                string fName = "";
+                int fLE = 0;
+                int fPreis = 0;
+                string preis = "";
+                foreach (ElementId symbolId in family.GetFamilySymbolIds())
+                {
+                    fName = ((FamilySymbol)family.Document.GetElement(symbolId)).Name;
+                    fLE = Convert.ToInt32(((FamilySymbol)family.Document.GetElement(symbolId)).GetParameters("Loescheinheit")[0].AsValueString());
+                    preis = ((FamilySymbol)family.Document.GetElement(symbolId)).GetParameters("Kosten")[0].AsValueString();
+                    fPreis = Convert.ToInt32(Regex.Replace(preis, @"[^\d]+", ""));
+
+                    Feuerloescher f = new Feuerloescher(fName, fLE, fPreis);
+                    feuerlocherList.Add(f);
+                }
+
+                return feuerlocherList;
             }
-
-            return feuerlocherList;
+            catch
+            {
+                return null;
+            }
         }
     }
 }

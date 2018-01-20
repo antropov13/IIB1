@@ -12,6 +12,8 @@ using GUI;
 using Autodesk.Revit.DB.Structure;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
+using System.Windows.Forms;
+using System.IO;
 
 namespace AddIn
 {
@@ -318,12 +320,29 @@ namespace AddIn
         }
 
 
-        public static Family loadFamilyExample(Document doc)
+        public static Family loadFamilyExample(Document doc, String path, String fileFamily)
         {
             try
             {
                 Family family = null;
-                string fileName = @"C:\Users\igora\Desktop\IIB1_UE1-master\IIB1_UE1-master\IIB1_Hausübung_1\Feuerloescher-Familie.rfa";
+                string file = path + fileFamily;
+                string fileName = @file;
+
+                Debug.WriteLine("FileFamily: ", fileName);
+
+                if (!File.Exists(fileName))
+                {
+                    string fehler = "Die Familie wurde nicht gefunden.\nFeuerlöscher-Familie soll sich neben dem Projekt befinden.\nWählen Sie bitte die Familie in Dialogfeld aus.";
+                    TaskDialog.Show("Familie ", fehler);
+                    OpenFileDialog ofd = new OpenFileDialog();
+                    if (ofd.ShowDialog() == DialogResult.OK)
+                    {
+                        //FileStream fs = new FileStream(ofd.FileName, FileMode.Open);
+                        Debug.WriteLine("Loadet Family: " + ofd.FileName);
+                    }
+                    fileName = ofd.FileName;
+                }
+
                 using (Transaction t = new Transaction(doc))
                 {
                     if (t.Start("LoadFamily") == TransactionStatus.Started)
@@ -338,10 +357,10 @@ namespace AddIn
                     }
                 }
 
-                string symbolNames = "";
+                string symbolNames = family.Name+"\n";
                 foreach (ElementId symbolId in family.GetFamilySymbolIds())
                 {
-                    symbolNames += family.Name + " - " + ((FamilySymbol)family.Document.GetElement(symbolId)).Name + "\n";
+                    symbolNames += ((FamilySymbol)family.Document.GetElement(symbolId)).Name + "\n";
                 }
                 TaskDialog.Show("Loaded", symbolNames);
                 return family;
