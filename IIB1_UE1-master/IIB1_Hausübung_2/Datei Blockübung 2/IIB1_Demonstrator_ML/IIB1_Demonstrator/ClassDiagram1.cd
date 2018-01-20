@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="IIB1_Demonstrator.Klassen.Buero" Collapsed="true">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Klassen\Buero.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IIB1_Demonstrator.Klassen.Fenster">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAgAAIAIAAAIAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Klassen\Fenster.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IIB1_Demonstrator.Klassen.Raum">
+    <Position X="2" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgACAAICAAAAAgAEAAAAYAAAAEACAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Klassen\Raum.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IIB1_Demonstrator.Klassen.Wohnen" Collapsed="true">
+    <Position X="3.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Klassen\Wohnen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IIB1_Demonstrator.Properties.Resources" Collapsed="true">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IIB1_Demonstrator.Properties.Settings" Collapsed="true">
+    <Position X="6.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
