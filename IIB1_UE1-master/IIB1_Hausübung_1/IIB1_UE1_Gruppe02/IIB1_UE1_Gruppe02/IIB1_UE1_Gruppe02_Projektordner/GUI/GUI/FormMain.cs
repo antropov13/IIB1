@@ -114,7 +114,7 @@ namespace GUI
                                               Color.Cyan);
 
                 e.DrawBackground();
-                e.Graphics.DrawString(item.Raum.Bezeichung, e.Font, new SolidBrush(item.RaumColor), new PointF(e.Bounds.X, e.Bounds.Y));
+                e.Graphics.DrawString(item.Raum.BezeichungLB, e.Font, new SolidBrush(item.RaumColor), new PointF(e.Bounds.X, e.Bounds.Y));
                 e.DrawFocusRectangle();
             }
             catch { }

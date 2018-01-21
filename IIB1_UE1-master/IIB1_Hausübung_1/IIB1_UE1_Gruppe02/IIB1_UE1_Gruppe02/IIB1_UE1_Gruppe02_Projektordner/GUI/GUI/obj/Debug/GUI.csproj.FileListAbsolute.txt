@@ -114,7 +114,6 @@ C:\Users\igora\Desktop\IIB1_UE1-master\IIB1_UE1-master\IIB1_Hausübung_1\IIB1_UE
 C:\Users\igora\Desktop\IIB1_UE1-master\IIB1_UE1-master\IIB1_Hausübung_1\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\GUI\GUI\bin\Debug\ru-RU\AdWindows.resources.dll
 C:\Users\igora\Desktop\IIB1_UE1-master\IIB1_UE1-master\IIB1_Hausübung_1\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\GUI\GUI\bin\Debug\zh-CN\AdWindows.resources.dll
 C:\Users\igora\Desktop\IIB1_UE1-master\IIB1_UE1-master\IIB1_Hausübung_1\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\GUI\GUI\bin\Debug\zh-TW\AdWindows.resources.dll
-C:\Users\igora\Desktop\IIB1_UE1-master\IIB1_UE1-master\IIB1_Hausübung_1\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\GUI\GUI\obj\Debug\GUI.csprojResolveAssemblyReference.cache
 C:\Users\igora\Desktop\Новая папка\IIB1_UE1-master-master\IIB1_UE1-master\IIB1_Hausübung_1\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\GUI\GUI\obj\Debug\GUI.csprojResolveAssemblyReference.cache
 C:\Users\igora\Desktop\Новая папка\IIB1_UE1-master-master\IIB1_UE1-master\IIB1_Hausübung_1\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\GUI\GUI\obj\Debug\GUI.FormMain.resources
 C:\Users\igora\Desktop\Новая папка\IIB1_UE1-master-master\IIB1_UE1-master\IIB1_Hausübung_1\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\GUI\GUI\obj\Debug\GUI.FormFeuerloescher.resources
@@ -123,3 +122,4 @@ C:\Users\igora\Desktop\Новая папка\IIB1_UE1-master-master\IIB1_UE1-mas
 C:\Users\igora\Desktop\Новая папка\IIB1_UE1-master-master\IIB1_UE1-master\IIB1_Hausübung_1\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\GUI\GUI\obj\Debug\GUI.Properties.Resources.resources
 C:\Users\igora\Desktop\Новая папка\IIB1_UE1-master-master\IIB1_UE1-master\IIB1_Hausübung_1\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\GUI\GUI\obj\Debug\GUI.csproj.GenerateResource.Cache
 C:\Users\igora\Desktop\Новая папка\IIB1_UE1-master-master\IIB1_UE1-master\IIB1_Hausübung_1\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\GUI\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.cache
+C:\Users\igora\Desktop\IIB1_UE1-master\IIB1_UE1-master\IIB1_Hausübung_1\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\GUI\GUI\obj\Debug\GUI.csprojResolveAssemblyReference.cache

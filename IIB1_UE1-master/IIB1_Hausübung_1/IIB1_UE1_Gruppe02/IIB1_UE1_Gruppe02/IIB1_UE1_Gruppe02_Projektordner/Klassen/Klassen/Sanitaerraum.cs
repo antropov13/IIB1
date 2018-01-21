@@ -15,6 +15,6 @@ namespace Klassen
 
         public Sanitaerraum() : base() { TypRaume = typRaum; Heizwert = heizwert; }
         public Sanitaerraum(Raum raum) : base(raum) { TypRaume = typRaum; Heizwert = heizwert; }
-        public Sanitaerraum(double flaeche, String bezeichnung, BindingList<Feuerloescher> feuerloescher, Material materialien, String revitID) : base(flaeche, bezeichnung, feuerloescher, materialien, revitID) { TypRaume = typRaum; Heizwert = heizwert; }
+        public Sanitaerraum(double flaeche, String bezeichnung, String nummer, BindingList<Feuerloescher> feuerloescher, Material materialien, String revitID) : base(flaeche, bezeichnung, nummer, feuerloescher, materialien, revitID) { TypRaume = typRaum; Heizwert = heizwert; }
     }
 }

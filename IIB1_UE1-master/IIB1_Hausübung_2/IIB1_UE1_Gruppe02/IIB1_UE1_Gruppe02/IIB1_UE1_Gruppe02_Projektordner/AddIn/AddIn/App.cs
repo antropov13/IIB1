@@ -99,10 +99,10 @@ namespace AddIn
             if (revitAppForm == null || revitAppForm.IsDisposed)
             {
                 
-                RaumdatenUpdater updateHandler = new RaumdatenUpdater();
-                FeuerloescherPlatzierer feuerloescherHandler = new FeuerloescherPlatzierer();
+                RaumdatenUpdater updateHandler = new RaumdatenUpdater(); //Update Raumdaten
+                FeuerloescherPlatzierer feuerloescherHandler = new FeuerloescherPlatzierer(); //Plazierung Feuerloescher
 
-                ExternalEvent updateEvent = ExternalEvent.Create(updateHandler);
+                ExternalEvent updateEvent = ExternalEvent.Create(updateHandler); 
                 ExternalEvent feuerloescherEvent = ExternalEvent.Create(feuerloescherHandler);
 
                 revitAppForm = new FormMain(updateEvent, feuerloescherEvent, feuerlocherList, revitRaeume);

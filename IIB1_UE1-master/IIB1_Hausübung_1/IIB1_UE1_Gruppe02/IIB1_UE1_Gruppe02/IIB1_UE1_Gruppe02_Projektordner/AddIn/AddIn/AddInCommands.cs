@@ -26,7 +26,6 @@ namespace AddIn
         {
 
             UIApplication uiApp = commandData.Application;
-            //UIApplication mapp = uiapp;
             UIDocument mdoc = uiApp.ActiveUIDocument;
             Util.Doc = mdoc.Document;
 
@@ -44,7 +43,8 @@ namespace AddIn
             BindingList<Raum> raeume = new BindingList<Raum>();
             BindingList<Feuerloescher> feuerlocherList = new BindingList<Feuerloescher>();
 
-            Family family =  Util.getFamily(nameFamily);
+            //Überprüfung und Empfand die Familie-Feuerloescher
+            Family family =  Util.getFamily(nameFamily); 
             if (family==null) family = Util.loadFamilyExample(mdoc.Document, pathDocument , fileFamily);
 
             if (family == null)
@@ -54,6 +54,7 @@ namespace AddIn
                 return Result.Failed;
             }
 
+            //Parsing die Liste der Feuerloescher aus Familie
             feuerlocherList = parseFamilyFeuerloescher(family);
 
             if (feuerlocherList == null)
@@ -74,7 +75,7 @@ namespace AddIn
             return Result.Succeeded;
         }
 
-        public static BindingList<Feuerloescher> parseFamilyFeuerloescher(Family family)
+        public static BindingList<Feuerloescher> parseFamilyFeuerloescher(Family family) //Parsing die Liste der Feuerloescher aus Familie
         {
             try
             {

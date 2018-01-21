@@ -32,6 +32,7 @@ namespace GUI
             comboBoxRaumNutzungsart.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 
             textBoxRaumBezeichnung.Text = raum.Bezeichung;
+            textBoxRaumNummer.Text = raum.Nummer;
             textBoxRaumFlaeche.Text = Math.Round(raum.Grundflaeche, 2).ToString();
             textBoxLoeschmeiiteleinheiten.Text = raum.Loeschmitteleinheiten.ToString();
             textBoxHeizwertRaum.Text = Convert.ToString(raum.Heizwert);
@@ -174,6 +175,7 @@ namespace GUI
                     break;
             }
             raum.Bezeichung = textBoxRaumBezeichnung.Text;
+            raum.Nummer = textBoxRaumNummer.Text;
             raum.Grundflaeche = Convert.ToDouble(textBoxRaumFlaeche.Text);
             raum.Loeschmitteleinheiten = Convert.ToInt32(textBoxLoeschmeiiteleinheiten.Text);
 
@@ -234,12 +236,17 @@ namespace GUI
             buttonAnderungEnabled();
         }
 
+        private void textBoxRaumNummer_TextChanged(object sender, EventArgs e)
+        {
+            buttonAnderungEnabled();
+        }
+
         private void buttonAnderungEnabled()
         {
             try
             {
                 double flaeche = Convert.ToDouble(textBoxRaumFlaeche.Text);
-                if ((textBoxRaumBezeichnung.TextLength > 0) && (flaeche > 0))
+                if ((textBoxRaumBezeichnung.TextLength > 0) && (flaeche > 0) && (textBoxRaumNummer.TextLength > 0))
                 {
                     buttonAenderungsSpeichern.Enabled = true;
                     buttonAenderungsSpeichern.BackColor = Color.FromName("DeepSkyBlue"); ;
@@ -256,6 +263,7 @@ namespace GUI
             }
 
         }
+
 
         private void textBoxRaumFlaeche_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -557,6 +565,5 @@ namespace GUI
             listBoxCountFeuerloescher.SelectedIndex = index;
             listBoxPreisSummaFeuerloscher.SelectedIndex = index;
         }
-
     }
 }

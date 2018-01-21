@@ -20,14 +20,3 @@ C:\Users\igora\Desktop\Projekt\IIB1_UE1-master\IIB1_UE1-master\IIB1_Hausübung_1
 C:\Users\igora\Desktop\Projekt\IIB1_UE1-master\IIB1_UE1-master\IIB1_Hausübung_1\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\AddIn\AddIn\bin\Debug\Klassen.pdb
 C:\Users\igora\Desktop\IIB1_UE1-master\IIB1_UE1-master\IIB1_Hausübung_1\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\AddIn\AddIn\bin\Debug\GUI.exe
 C:\Users\igora\Desktop\IIB1_UE1-master\IIB1_UE1-master\IIB1_Hausübung_1\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\AddIn\AddIn\obj\Debug\AddIn.csprojResolveAssemblyReference.cache
-C:\Users\igora\Desktop\IIB1_UE1-master\IIB1_UE1-master\IIB1_Hausübung_2\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\AddIn\AddIn\bin\Debug\AddIn.dll
-C:\Users\igora\Desktop\IIB1_UE1-master\IIB1_UE1-master\IIB1_Hausübung_2\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\AddIn\AddIn\bin\Debug\AddIn.pdb
-C:\Users\igora\Desktop\IIB1_UE1-master\IIB1_UE1-master\IIB1_Hausübung_2\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\AddIn\AddIn\bin\Debug\GUI.exe
-C:\Users\igora\Desktop\IIB1_UE1-master\IIB1_UE1-master\IIB1_Hausübung_2\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\AddIn\AddIn\bin\Debug\Klassen.dll
-C:\Users\igora\Desktop\IIB1_UE1-master\IIB1_UE1-master\IIB1_Hausübung_2\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\AddIn\AddIn\bin\Debug\GUI.pdb
-C:\Users\igora\Desktop\IIB1_UE1-master\IIB1_UE1-master\IIB1_Hausübung_2\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\AddIn\AddIn\bin\Debug\GUI.exe.config
-C:\Users\igora\Desktop\IIB1_UE1-master\IIB1_UE1-master\IIB1_Hausübung_2\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\AddIn\AddIn\bin\Debug\Klassen.pdb
-C:\Users\igora\Desktop\IIB1_UE1-master\IIB1_UE1-master\IIB1_Hausübung_2\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\AddIn\AddIn\obj\Debug\AddIn.csprojResolveAssemblyReference.cache
-C:\Users\igora\Desktop\IIB1_UE1-master\IIB1_UE1-master\IIB1_Hausübung_2\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\AddIn\AddIn\obj\Debug\AddIn.csproj.CoreCompileInputs.cache
-C:\Users\igora\Desktop\IIB1_UE1-master\IIB1_UE1-master\IIB1_Hausübung_2\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\AddIn\AddIn\obj\Debug\AddIn.dll
-C:\Users\igora\Desktop\IIB1_UE1-master\IIB1_UE1-master\IIB1_Hausübung_2\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\AddIn\AddIn\obj\Debug\AddIn.pdb

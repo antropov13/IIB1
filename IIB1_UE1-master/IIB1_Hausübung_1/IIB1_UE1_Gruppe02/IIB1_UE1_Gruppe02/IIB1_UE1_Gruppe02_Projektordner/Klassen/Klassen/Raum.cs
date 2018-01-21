@@ -14,6 +14,7 @@ namespace Klassen
         //Attribute der Klasse
         protected double grundflaeche;
         protected String bezeichung;
+        protected String nummer;
         protected int loeschmitteleinheiten;
         protected double brandlast;
         protected Material materialien;
@@ -34,7 +35,9 @@ namespace Klassen
 
         //Properties der Klasse
         public double Grundflaeche { get { return grundflaeche; } set { grundflaeche = value; } }
-        public String Bezeichung { get { return bezeichung; } set { bezeichung = value;  } }
+        public String BezeichungLB { get { return "№" + nummer + " " + bezeichung; } set { bezeichung = value;  } }
+        public String Bezeichung { get { return bezeichung; } set { bezeichung = value; } }
+        public String Nummer { get { return nummer; } set { nummer = value; } }
         public int Loeschmitteleinheiten { get { return loeschmitteleinheiten; } set { loeschmitteleinheiten = value; } }
         public double Brandlast { get { return brandlast; } set { brandlast = value; } } 
         public Material Materialien {  get { return materialien; } set { materialien = value; } }
@@ -54,12 +57,14 @@ namespace Klassen
             loeschmitteleinheiten = 0;
             heizwert = 0;
             brandlast = 0;
+            nummer = "";
         }
 
         //Allgemeiner Konstruktor1
         public Raum(Raum _raum)
         {
             this.bezeichung = _raum.Bezeichung;
+            this.nummer = _raum.nummer;
             this.grundflaeche = _raum.Grundflaeche;
             //this.brandgefahr = _raum.Brandgefahr;
             this.typRaum = _raum.TypRaume;
@@ -72,9 +77,10 @@ namespace Klassen
         }
 
         //Allgemeiner Konstruktor2
-        public Raum(double _grundflaeche, String _bezeichnung, BindingList<Feuerloescher> _feuerloecher, Material _materialien)
+        public Raum(double _grundflaeche, String _bezeichnung, String _nummer, BindingList<Feuerloescher> _feuerloecher, Material _materialien)
         {
             this.bezeichung = _bezeichnung;
+            this.nummer = _nummer;
             this.grundflaeche = _grundflaeche;
             this.loeschmitteleinheiten = countLoeschmitteleinheiten(_grundflaeche);
             this.feuerloescherList = _feuerloecher;
@@ -83,9 +89,10 @@ namespace Klassen
         }
 
         //Allgemeiner Konstruktor3
-        public Raum(double _grundflaeche, String _bezeichnung, BindingList<Feuerloescher> _feuerloecher, Material _materialien, string _revitId)
+        public Raum(double _grundflaeche, String _bezeichnung, String _nummer, BindingList<Feuerloescher> _feuerloecher, Material _materialien, string _revitId)
         {
             this.bezeichung = _bezeichnung;
+            this.nummer = _nummer;
             this.grundflaeche = _grundflaeche;
             this.loeschmitteleinheiten = countLoeschmitteleinheiten(_grundflaeche);
             this.feuerloescherList = _feuerloecher;

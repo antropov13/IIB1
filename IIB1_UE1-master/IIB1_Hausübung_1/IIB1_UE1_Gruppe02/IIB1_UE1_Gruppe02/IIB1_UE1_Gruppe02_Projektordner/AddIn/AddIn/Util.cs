@@ -21,9 +21,9 @@ namespace AddIn
     {
         #region Attribute
         private static Document doc = null;
+        private static Family family = null;
         private static IList<Element> alleFeuerloescher = new List<Element>();
         public static readonly string nutzungsart = "Nutzungsgruppe DIN 277-2";
-        //private static IList<Element> alleBoeden = new List<Element>();
 
         public static Document Doc
         {
@@ -42,49 +42,47 @@ namespace AddIn
         /// <param name="room">Raum, der geparst werden soll.</param>
         /// <returns>Den Raum als Instanz der Klasse Raum</returns>
         /// 
-        //private static 
-
-
         public static Raum parseRaum(Room room)
         {
-
+            //Parse Raum
             List<FamilyInstance> revitFeuerloescherListe = findeAlleRaumFeuerloescher(room);
             BindingList<Feuerloescher> feuerloescherListe = parseFeuerloescher(revitFeuerloescherListe);
-            //BindingList<Feuerloescher> feuerloescherListe = new BindingList<Feuerloescher>();
             Klassen.Material material = new Klassen.Material();
-            double flaeche = squarefeetToQuadratmeter(room.Area);
-            //string raumtyp = room.GetParameters("Raumschlüssel")[0].AsValueString();
-            string raumtyp = room.GetParameters(nutzungsart)[0].AsString();
+            double flaeche = squarefeetToQuadratmeter(room.Area); //Fläsche
+            string raumtyp = room.GetParameters(nutzungsart)[0].AsString(); //Raumnutzungsart
+            string name = room.Name.Replace(room.Number, "").Trim();
             if (raumtyp == "2-Büroarbeit")
             {
-                Buero buero = new Buero(flaeche, room.Number, feuerloescherListe, material, room.UniqueId);
+                Buero buero = new Buero(flaeche, name, room.Number, feuerloescherListe, material, room.UniqueId); //UniqueID - einzigartiger Nummer jedes Raum
                 return buero;
             }
             else if (raumtyp == "3-Produktion/Hand-Maschinenarbeit/Experimente")
             {
-                Seminarraum seminarraum = new Seminarraum(flaeche, room.Number, feuerloescherListe, material, room.UniqueId);
+                Seminarraum seminarraum = new Seminarraum(flaeche, name, room.Number, feuerloescherListe, material, room.UniqueId);
                 return seminarraum;
             }
             else if (raumtyp == "7-Sonstige Nutzflächen")
             {
-                Sanitaerraum sanitaerraum = new Sanitaerraum(flaeche, room.Number, feuerloescherListe, material, room.UniqueId);
+                Sanitaerraum sanitaerraum = new Sanitaerraum(flaeche, name, room.Number, feuerloescherListe, material, room.UniqueId);
                 return sanitaerraum;
             }
             else if (raumtyp == "1-Wohnen und Aufenthalt")
             {
-                Flur flur = new Flur(flaeche, room.Number, feuerloescherListe, material, room.UniqueId);
+                Flur flur = new Flur(flaeche, name, room.Number, feuerloescherListe, material, room.UniqueId);
                 return flur;
             }
             return null;
         }
 
         /// <summary>
-        /// Parst eine Revit-Fensterliste in ein Fenster-Fensterliste.
+        /// Parst eine Revit-FeuerloescherListe in ein Feuerloescher-FeuerloescherListe.
         /// </summary>
-        /// <param name="revitFensterListe">liste von Fenster, die geparst werden soll.</param>
-        /// <returns>Eine Liste der Fenster eines Raumes</returns>
+        /// <param name="revitFeuerloescherListe">liste von Fenster, die geparst werden soll.</param>
+        /// <returns>Eine Liste der Feuerloescher eines Raumes</returns>
+        /// 
         private static BindingList<Feuerloescher> parseFeuerloescher(List<FamilyInstance> revitFeuerloescherListe)
         {
+            //Parse Feuerloescher
             if (revitFeuerloescherListe != null)
             {
                 BindingList<Feuerloescher> feuerloescherListe = new BindingList<Feuerloescher>();
@@ -136,7 +134,25 @@ namespace AddIn
             return null;
         }
 
+        // Suche alle Revit-Feuerloescher in der Raum.
+        private static List<FamilyInstance> findeAlleRaumFeuerloescher(Room room)
+        {
+            List<FamilyInstance> alleRaumFeuerloescher = new List<FamilyInstance>();
+            foreach (Element e in alleFeuerloescher)
+            {
+                FamilyInstance fi = (FamilyInstance)e;
+                FamilySymbol s = GetFamilySymbolByName(BuiltInCategory.OST_SpecialityEquipment, fi.Name);
 
+                if (fi.Room != null && fi.Room.Number.Equals(room.Number))
+                {
+
+                    alleRaumFeuerloescher.Add(fi);
+                }
+            }
+            return alleRaumFeuerloescher;
+        }
+
+        // Suche alle Revit-Feuerloescher im Document.
         public static void holeAlleFeuerloescher()
         {
             ElementCategoryFilter filter = new ElementCategoryFilter(BuiltInCategory.OST_SpecialityEquipment);
@@ -146,6 +162,7 @@ namespace AddIn
             listFeuerloescherSuebern();
         }
 
+        //Reinigung der Revit-Feuerloescherliste (nur die Feuerloescher, die in der Feld "Beschreibung" als "Feuerloescher aufgezeichnet haben)
         public static void listFeuerloescherSuebern()
         {
             IList<Element> alleFeuerloescherBuffer = new List<Element>();
@@ -172,29 +189,8 @@ namespace AddIn
             alleFeuerloescher = alleFeuerloescherBuffer;
         }
 
-        /// <summary>
-        /// Holt alle Fenster, die in den Waenden des ausgesuchten Zimmers sind. siehe https://boostyourbim.wordpress.com/2012/12/04/the-elements-that-bound-a-room/
-        ///                                                                        und http://thebuildingcoder.typepad.com/blog/2013/07/football-and-space-adjacency-for-heat-load-calculation.html#3
-        /// </summary>
-        /// <param name="room">Raum, der untersucht werden soll.</param>
-        /// <returns>Den Raum als Instanz der Klasse Raum</returns>
-        private static List<FamilyInstance> findeAlleRaumFeuerloescher(Room room)
-        {
-            List<FamilyInstance> alleRaumFeuerloescher = new List<FamilyInstance>();
-            foreach (Element e in alleFeuerloescher)
-            {
-                FamilyInstance fi = (FamilyInstance)e;
-                FamilySymbol s = GetFamilySymbolByName(BuiltInCategory.OST_SpecialityEquipment, fi.Name);
 
-                if (fi.Room != null && fi.Room.Number.Equals(room.Number))
-                {
-
-                    alleRaumFeuerloescher.Add(fi);
-                }
-            }
-            return alleRaumFeuerloescher;
-        }
-
+        //Berechnung die Fläsche des Raum
         public static double squarefeetToQuadratmeter(double squarefeet)
         {
             double quadratmeter = (squarefeet / 10.7639);
@@ -204,13 +200,9 @@ namespace AddIn
         public static void updateRaumDaten(BindingList<Raum> raeume)
         {
             aendereBekannteProperties(raeume);
-            aendereNeueProperties(raeume);
         }
 
-        private static void aendereNeueProperties(BindingList<Raum> raeume)
-        {
-        }
-
+        //Update Raumdaten
         private static void aendereBekannteProperties(BindingList<Raum> raeume)
         {
             try
@@ -225,7 +217,8 @@ namespace AddIn
                         {
                             if (trans.Start("ChangeRoomParameters") == TransactionStatus.Started)
                             {
-                                room.Number = r.Bezeichung;
+                                room.Name = r.Bezeichung;
+                                room.Number = r.Nummer;
                                 if (zugehörigeNutzungsart(r) != "")
                                     worked = room.GetParameters(nutzungsart).First().Set(zugehörigeNutzungsart(r));
                                 trans.Commit();
@@ -240,6 +233,7 @@ namespace AddIn
             }
         }
 
+        //Empfang der Nutzungsart des Raum
         private static string zugehörigeNutzungsart(Raum r)
         {
 
@@ -254,10 +248,12 @@ namespace AddIn
             else return "";
         }
 
+
         public static bool mengeFeuerloscher(Raum r)
         {
             return (r.FeuerloescherList.Count <= 29);
         }
+
 
         public static bool getFeuerloscher(Raum r, Feuerloescher f)
         {
@@ -268,7 +264,7 @@ namespace AddIn
             return false;
         }
 
-
+        //Plazierung der Feuerloescher
         public static void platziereFeuerloescher(BindingList<Raum> raeume)
         {
             Feuerloescher f = new Feuerloescher("27A/144B", 9, 140);
@@ -276,23 +272,24 @@ namespace AddIn
             foreach (Raum r in raeume)
             {
                 if (mengeFeuerloscher(r)) {
+                    platziereFeuerloescherInRaum(r);
                     if (getFeuerloscher(r,f))
                         r.feueloescherAnzahlHinzu(f);
                     else
-                        r.feueloescherHinzu(f);
-                    platziereFeuerloescherInRaum(r);
+                        r.feueloescherHinzu(f);                   
                 }
             }
         }
 
+        //Empfang der Familie
         public static Family getFamily(String FamilyName)
         {
             FilteredElementCollector a = new FilteredElementCollector(doc).OfClass(typeof(Family));
-            Family family = a.FirstOrDefault<Element>(e => e.Name.Equals(FamilyName)) as Family;
+            family = a.FirstOrDefault<Element>(e => e.Name.Equals(FamilyName)) as Family;
             return family;
         }
 
-
+        //Plazierung der Feuerloescher in den Raum
         private static void platziereFeuerloescherInRaum(Raum r)
         {
             Room rr = doc.GetElement(r.RevitId) as Room;
@@ -304,27 +301,25 @@ namespace AddIn
                 {
                     if (trans.Start("PlaceFamily") == TransactionStatus.Started)
                     {
-                        FamilyInstance fi = doc.Create.NewFamilyInstance(locR,
-                            GetFamilySymbolByName(BuiltInCategory.OST_SpecialityEquipment, "27A/144B")
-                            , StructuralType.NonStructural);
+                        FamilyInstance fi = doc.Create.NewFamilyInstance(locR, GetFamilySymbolByName(BuiltInCategory.OST_SpecialityEquipment, "27A/144B"), StructuralType.NonStructural);
                         trans.Commit();
                     }
                 }
             }
         }
 
+        //Empfang des Feuerloescher als FamilieSymbol
         private static FamilySymbol GetFamilySymbolByName(BuiltInCategory bic, string name)
         {
             return new FilteredElementCollector(doc).OfCategory(bic).OfClass(typeof(FamilySymbol))
                 .FirstOrDefault<Element>(e => e.Name.Equals(name)) as FamilySymbol;
         }
 
-
+        //Ladung der Familie
         public static Family loadFamilyExample(Document doc, String path, String fileFamily)
         {
             try
             {
-                Family family = null;
                 string file = path + fileFamily;
                 string fileName = @file;
 
@@ -332,13 +327,13 @@ namespace AddIn
 
                 if (!File.Exists(fileName))
                 {
-                    string fehler = "Die Familie wurde nicht gefunden.\nFeuerlöscher-Familie soll sich neben dem Projekt befinden.\nWählen Sie bitte die Familie in Dialogfeld aus.";
+                    string fehler = "Die Familie wurde nicht gefunden.\nFeuerlöscher-Familie soll sich neben dem Projekt befinden.\nWählen Sie bitte die Familie im Dialogfeld aus.";
                     TaskDialog.Show("Familie ", fehler);
                     OpenFileDialog ofd = new OpenFileDialog();
                     if (ofd.ShowDialog() == DialogResult.OK)
                     {
                         //FileStream fs = new FileStream(ofd.FileName, FileMode.Open);
-                        Debug.WriteLine("Loadet Family: " + ofd.FileName);
+                        Debug.WriteLine("Load Family: " + ofd.FileName);
                     }
                     fileName = ofd.FileName;
                 }
@@ -362,12 +357,12 @@ namespace AddIn
                 {
                     symbolNames += ((FamilySymbol)family.Document.GetElement(symbolId)).Name + "\n";
                 }
-                TaskDialog.Show("Loaded", symbolNames);
+                TaskDialog.Show("Load", symbolNames);
                 return family;
             }
             catch
             {
-                Family family = null;
+                family = null;
                 return family;
             }
             
