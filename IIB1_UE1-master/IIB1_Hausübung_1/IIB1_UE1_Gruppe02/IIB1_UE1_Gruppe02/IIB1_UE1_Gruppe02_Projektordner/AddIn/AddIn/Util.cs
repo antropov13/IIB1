@@ -48,28 +48,30 @@ namespace AddIn
             List<FamilyInstance> revitFeuerloescherListe = findeAlleRaumFeuerloescher(room);
             BindingList<Feuerloescher> feuerloescherListe = parseFeuerloescher(revitFeuerloescherListe);
             Klassen.Material material = new Klassen.Material();
-            double flaeche = squarefeetToQuadratmeter(room.Area); //Fläsche
-            string raumtyp = room.GetParameters(nutzungsart)[0].AsString(); //Raumnutzungsart
+            double flaeche = squarefeetToQuadratmeter(room.Area); //Fläche
+            string raumtyp = room.GetParameters("Raumschlüssel")[0].AsValueString(); //Raumnutzungsart
             string name = room.Name.Replace(room.Number, "").Trim();
-            if (raumtyp == "2-Büroarbeit")
+
+            if (raumtyp == "1" || raumtyp == "4")
+            {
+                Flur flur = new Flur(flaeche, name, room.Number, feuerloescherListe, material, room.UniqueId);
+                return flur;
+            }
+
+            if (raumtyp == "2")
             {
                 Buero buero = new Buero(flaeche, name, room.Number, feuerloescherListe, material, room.UniqueId); //UniqueID - einzigartiger Nummer jedes Raum
                 return buero;
             }
-            else if (raumtyp == "3-Produktion/Hand-Maschinenarbeit/Experimente")
+            else if (raumtyp == "3" || raumtyp == "5")
             {
                 Seminarraum seminarraum = new Seminarraum(flaeche, name, room.Number, feuerloescherListe, material, room.UniqueId);
                 return seminarraum;
             }
-            else if (raumtyp == "7-Sonstige Nutzflächen")
+            else if (raumtyp == "6" || raumtyp == "7")
             {
                 Sanitaerraum sanitaerraum = new Sanitaerraum(flaeche, name, room.Number, feuerloescherListe, material, room.UniqueId);
                 return sanitaerraum;
-            }
-            else if (raumtyp == "1-Wohnen und Aufenthalt")
-            {
-                Flur flur = new Flur(flaeche, name, room.Number, feuerloescherListe, material, room.UniqueId);
-                return flur;
             }
             return null;
         }

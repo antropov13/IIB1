@@ -4,7 +4,7 @@
   
    <AddIn Type="Application">
     
-	<Assembly>C:\Users\igora\Desktop\IIB1_UE1-master\IIB1_UE1-master	\IIB1_Hausübung_1\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\AddIn\AddIn\bin	\Debug\AddIn.dll</Assembly>
+	<Assembly>C:\Users\Charli\Documents\GitHub\IIB1_UE1-master\IIB1_UE1-master\IIB1_Hausübung_1\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02\IIB1_UE1_Gruppe02_Projektordner\AddIn\AddIn\bin\Debug\AddIn.dll</Assembly>
     
 	<AddInId>78250f4e-6c3f-4ae4-a134-7afd27ecf2da</AddInId>
 

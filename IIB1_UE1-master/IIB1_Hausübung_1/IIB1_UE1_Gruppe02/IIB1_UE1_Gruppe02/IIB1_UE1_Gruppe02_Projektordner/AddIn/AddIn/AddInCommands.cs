@@ -31,7 +31,7 @@ namespace AddIn
 
             string path = mdoc.Document.PathName;
             string namedoc = mdoc.Document.Title;
-            string pathDocument = path.Replace(namedoc, "");
+            string pathDocument = path.Replace(namedoc+".rvt", "");
             string fileFamily = "Feuerloescher-Familie.rfa";
             string nameFamily = "Feuerloescher-Familie";
 
@@ -66,9 +66,9 @@ namespace AddIn
 
             foreach (Element e in Rooms)
             {
-                Raum r = Util.parseRaum((Room)e);
-                if (r != null)
-                    meineRaeume.Add(r);
+                    Raum r = Util.parseRaum((Room)e);
+                    if (r != null)
+                        meineRaeume.Add(r);
             }
 
             App.thisApp.ShowForm(meineRaeume, feuerlocherList);
