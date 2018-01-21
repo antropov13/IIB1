@@ -231,7 +231,7 @@ namespace AddIn
                              //   room.Name = r.Bezeichung;
                                 room.Number = r.Nummer;
                                 if (zugehörigeNutzungsart(r) != "")
-                                    worked = room.GetParameters("Raumschlüssel").First().Set(zugehörigeNutzungsart(r));
+                                    worked = room.GetParameters("Raumschlüssel")[0].Set(zugehörigeNutzungsart(r));
                                 trans.Commit();
                             }
                         }
@@ -305,7 +305,7 @@ namespace AddIn
         {
             Room rr = doc.GetElement(r.RevitId) as Room;
             XYZ locR = mdoc.Selection.PickPoint("Bitte Punkt auswählen");
-            //XYZ locR = ((LocationPoint)rr.Location).Point;
+
             
             if (null != locR)
             {
@@ -320,9 +320,11 @@ namespace AddIn
             }
         }
 
+
         //Empfang des Feuerloescher als FamilieSymbol
         private static FamilySymbol GetFamilySymbolByName(BuiltInCategory bic, string name)
         {
+
             return new FilteredElementCollector(doc).OfCategory(bic).OfClass(typeof(FamilySymbol))
                 .FirstOrDefault<Element>(e => e.Name.Equals(name)) as FamilySymbol;
         }
