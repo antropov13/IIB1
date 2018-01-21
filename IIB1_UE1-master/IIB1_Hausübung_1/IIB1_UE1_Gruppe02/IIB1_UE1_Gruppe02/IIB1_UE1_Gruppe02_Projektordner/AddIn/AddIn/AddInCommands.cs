@@ -28,6 +28,7 @@ namespace AddIn
             UIApplication uiApp = commandData.Application;
             UIDocument mdoc = uiApp.ActiveUIDocument;
             Util.Doc = mdoc.Document;
+            Util.Mdoc = mdoc;
 
             string path = mdoc.Document.PathName;
             string namedoc = mdoc.Document.Title;

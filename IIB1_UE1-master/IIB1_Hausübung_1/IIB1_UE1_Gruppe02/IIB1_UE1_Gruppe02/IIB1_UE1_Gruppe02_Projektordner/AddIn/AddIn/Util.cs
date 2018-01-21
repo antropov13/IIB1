@@ -24,12 +24,21 @@ namespace AddIn
         private static Family family = null;
         private static IList<Element> alleFeuerloescher = new List<Element>();
         public static readonly string nutzungsart = "Nutzungsgruppe DIN 277-2";
+        private static UIDocument mdoc = null;
 
         public static Document Doc
         {
             set
             {
                 doc = value;
+            }
+        }
+
+        public static UIDocument Mdoc
+        {
+            set
+            {
+                mdoc = value;
             }
         }
 
@@ -219,10 +228,10 @@ namespace AddIn
                         {
                             if (trans.Start("ChangeRoomParameters") == TransactionStatus.Started)
                             {
-                                room.Name = r.Bezeichung;
+                             //   room.Name = r.Bezeichung;
                                 room.Number = r.Nummer;
                                 if (zugehörigeNutzungsart(r) != "")
-                                    worked = room.GetParameters(nutzungsart).First().Set(zugehörigeNutzungsart(r));
+                                    worked = room.GetParameters("Raumschlüssel").First().Set(zugehörigeNutzungsart(r));
                                 trans.Commit();
                             }
                         }
@@ -240,13 +249,13 @@ namespace AddIn
         {
 
             if (r is Buero)
-                return "2-Büroarbeit";
+                return "2";
             if (r is Flur)
-                return "1-Wohnen und Aufenthalt";
+                return "1";
             if (r is Sanitaerraum)
-                return "7-Sonstige Nutzflächen";
+                return "7";
             if (r is Seminarraum)
-                return "3-Produktion/Hand-Maschinenarbeit/Experimente";
+                return "3";
             else return "";
         }
 
@@ -295,7 +304,8 @@ namespace AddIn
         private static void platziereFeuerloescherInRaum(Raum r)
         {
             Room rr = doc.GetElement(r.RevitId) as Room;
-            XYZ locR = ((LocationPoint)rr.Location).Point;
+            XYZ locR = mdoc.Selection.PickPoint("Bitte Punkt auswählen");
+            //XYZ locR = ((LocationPoint)rr.Location).Point;
             
             if (null != locR)
             {
@@ -329,7 +339,7 @@ namespace AddIn
 
                 if (!File.Exists(fileName))
                 {
-                    string fehler = "Die Familie wurde nicht gefunden.\nFeuerlöscher-Familie soll sich neben dem Projekt befinden.\nWählen Sie bitte die Familie im Dialogfeld aus.";
+                    string fehler = "Die Feuerlöscher-Familie wurde nicht gefunden.\nBitte wählen Sie den Speicherort der Familie im Dialogfenster aus.";
                     TaskDialog.Show("Familie ", fehler);
                     OpenFileDialog ofd = new OpenFileDialog();
                     if (ofd.ShowDialog() == DialogResult.OK)
